@@ -340,7 +340,23 @@
       
         
           
-            
+            <p>Papers:</p>
+<h2 id="1-Federated-Machine-Learning-Concepts-and-Applications"><a href="#1-Federated-Machine-Learning-Concepts-and-Applications" class="headerlink" title="1. Federated Machine Learning: Concepts and Applications"></a>1. Federated Machine Learning: Concepts and Applications</h2><p>limits:<br>data exists in the form of isolated islands<br>industry competition, privacy security and complicated administrative procedures</p>
+<h3 id="Definition-of-Federated-Learning"><a href="#Definition-of-Federated-Learning" class="headerlink" title="Definition of Federated Learning"></a>Definition of Federated Learning</h3><p>| V(FED) - V(SUM) | &lt;  &#948;: &#948;-accuracy loss</p>
+<h3 id="Privacy-of-Federated-Learning"><a href="#Privacy-of-Federated-Learning" class="headerlink" title="Privacy of Federated Learning"></a>Privacy of Federated Learning</h3><h5 id="SMC"><a href="#SMC" class="headerlink" title="SMC"></a>SMC</h5><p>SMC: zero knowledge, efficient, lower security requirement<br>e.g. Sharemind<br>MPC: no revealing sensitive data<br>3PC: an honest majority and consider security in both semi-honest and malicious assumptions. Requires participants’ data to be secretly-shared among non-colluding servers</p>
+<h5 id="Differential-Privacy"><a href="#Differential-Privacy" class="headerlink" title="Differential Privacy"></a>Differential Privacy</h5><p>differential privacy, k-anonymity,and diversification involve in adding noise to the data,or using generalization methods to obscure certain sensitive attributes until the third party cannot distinguish the individual<br>e.g. [23] add protection to client-side data by hiding client’s contributions during training.</p>
+<h5 id="Homomorphic-Encryption"><a href="#Homomorphic-Encryption" class="headerlink" title="Homomorphic Encryption"></a>Homomorphic Encryption</h5><p>the data and the model itself are not transmitted<br>so, little possibility of leakage at the raw data level<br>e.g. Additively Homomorphic Encryption<br>polynomial approximations need to be made to evaluate non-linear functions</p>
+<h4 id="Indirect-information-leakage"><a href="#Indirect-information-leakage" class="headerlink" title="Indirect information leakage"></a>Indirect information leakage</h4><p>backdoors, loopholes</p>
+<h5 id="Blockchain"><a href="#Blockchain" class="headerlink" title="Blockchain"></a>Blockchain</h5><p>BlockFL(block-chained federated learning) architecture</p>
+<h3 id="A-Categorization-of-Federated-Learning"><a href="#A-Categorization-of-Federated-Learning" class="headerlink" title="A Categorization of Federated Learning"></a>A Categorization of Federated Learning</h3><p>Federated Learning for Mobile Keyboard Prediction</p>
+<p><strong>old method</strong>: </p>
+<p>FST<br>searching for the highest-order n-gram state that matches the preceding text<br>Primary language  model for the English language: a Katz smoothed Bayesian interpolated 5-gram LM containing 1.25 million n-grams, including 164000 unigrams.</p>
+<p><strong>demand</strong>: </p>
+<p>models should be small and inference-time latency should be low.<br>language models are usually limited to tens of megabytes in size with vocabularies of hundreds of thousands of words because of client device batteries</p>
+<p><strong>This paper:</strong> </p>
+<p>RNN<br>performs well on language modeling tasks<br>utilize an arbitrary and dynamically-sized context window</p>
+<p>LSTM<br>resolving exploding and vanishing gradients in the back-propagation through time algorithm</p>
+
           
         
       
@@ -562,6 +578,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
