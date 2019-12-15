@@ -269,6 +269,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/15/Practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/15/Practice/" itemprop="url">Java Concurrency in Practice</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-15T21:48:00+08:00">
+                2019-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming-books-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming-books Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第二章-线程安全性"><a href="#第二章-线程安全性" class="headerlink" title="第二章 线程安全性"></a>第二章 线程安全性</h1><h2 id="2-2-原子性"><a href="#2-2-原子性" class="headerlink" title="2.2 原子性"></a>2.2 原子性</h2><h3 id="2-2-3-复合操作"><a href="#2-2-3-复合操作" class="headerlink" title="2.2.3 复合操作"></a>2.2.3 复合操作</h3><p>线程安全对象<br>ref: <a href="https://blog.csdn.net/xiaoyi52/article/details/68579593" target="_blank" rel="noopener">https://blog.csdn.net/xiaoyi52/article/details/68579593</a></p>
+<p>基本的线程安全对象有Vector，HashTable，还有经过Collections.synchronizedCollection()方法包装的集合对象。Java并发包中提供的安全类型有ConcurentHashMap，ConcurentLinkedQueue，CopyOnWriteArrayList，还有BlockingQueue的实现类型。另外还有Java原子包中提供的AtomicInteger，AtomicLong等原子类型。</p>
+<p>经过Collections.synchronizedMap()包装的HashMap是一个线程安全对象，如Map m = Collections. synchronizedMap(new HashMap())。Collections.synchronizedMap()会生成一个名为SynchronizedMap的Map，它使用委托将自己所有Map相关的功能交给传入的HashMap实现，而自己主要负责保证线程安全。实际上就是将HashMap相关的操作方法加上了synchronized关键字以保证线程安全，在并发级别不高时可以使用。</p>
+<p>ConcurentHashMap</p>
+<p>ConcurentHashMap是Java并发包提供的并发HashMap，它专门为并发进行了性能优化，更加适合多线程的场合。其内部实现原理是：它实现了一个Segement数组，对于每一个数组元素来讲，都相当于一个HashTable。在同一个segement上操作时，会加锁进行互斥同步。而在不同的segement上操作时则是无锁的。它引入了“多段锁”的概念，将锁的粒度从整个对象上细化到了具体每个segement数组的元素上，以此达到提升并发性能的目的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/15/SpringBoot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -487,8 +633,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/programming-Books-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">programming-Books Notes</span>
+                  <a href="/categories/Maven/" itemprop="url" rel="index">
+                    <span itemprop="name">Maven</span>
                   </a>
                 </span>
 
@@ -648,8 +794,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Books-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Books Notes</span>
+                  <a href="/categories/Programming-books-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming-books Notes</span>
                   </a>
                 </span>
 
@@ -1064,7 +1210,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1086,7 +1232,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
