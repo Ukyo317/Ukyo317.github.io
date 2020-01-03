@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/305504/201611/305504-20161112124341280-1435223816.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/305504/201611/305504-20161112124423530-566240666.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/305504/201611/305504-20161112130135639-1005446770.png">
-<meta property="og:updated_time" content="2019-12-27T05:43:21.093Z">
+<meta property="og:updated_time" content="2019-12-28T02:35:31.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="network">
 <meta name="twitter:description" content="jdfjdf Others正向代理和反向代理正向代理 For example: 　　我是一个用户，我访问不了某网站，但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先连上代理服务器,告诉他我需要那个无法访问网站的内容，代理服务器去取回来,然后返回给我。从网站的角度，只在代理服务器来取内容的时候有一次记录，有时候并不知道是用户的请求，也隐藏了用户的资料，这取决于代理">
@@ -364,8 +364,9 @@
 <h4 id="2-配置规则"><a href="#2-配置规则" class="headerlink" title="2 配置规则"></a>2 配置规则</h4><h5 id="1-url-后带-（则不会加上location中的匹配路径）"><a href="#1-url-后带-（则不会加上location中的匹配路径）" class="headerlink" title="1 url 后带 / （则不会加上location中的匹配路径）"></a>1 url 后带 / （则不会加上location中的匹配路径）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">	root /data/www/html;</span><br><span class="line">	proxy_pass http://test.yemao.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>访问 <a href="http://my.yemao.com/proxy/index.html，其实是访问到了" target="_blank" rel="noopener">http://my.yemao.com/proxy/index.html，其实是访问到了</a> <a href="http://test.yemao.com/index.html" target="_blank" rel="noopener">http://test.yemao.com/index.html</a></p>
-<h5 id="2-url中不带-（则会加上location中的匹配路径）"><a href="#2-url中不带-（则会加上location中的匹配路径）" class="headerlink" title="2 url中不带 / （则会加上location中的匹配路径）"></a>2 url中不带 / （则会加上location中的匹配路径）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">	root /data/www/html;</span><br><span class="line">	proxy_pass http://test.yemao.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-url中不带-（则会加上location中的匹配路径）"><a href="#2-url中不带-（则会加上location中的匹配路径）" class="headerlink" title="2 url中不带 / （则会加上location中的匹配路径）"></a>2 url中不带 / （则会加上location中的匹配路径）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">	root /data/www/html;</span><br><span class="line">	proxy_pass http://test.yemao.com;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>我们访问 <a href="http://my.yemao.com/proxy/index.html" target="_blank" rel="noopener">http://my.yemao.com/proxy/index.html</a>, 其实是访问到了 <a href="http://test.yemao.com/proxy/index.html" target="_blank" rel="noopener">http://test.yemao.com/proxy/index.html</a>, 这里将 location 中匹配的 proxy 也自动加到了代理转发的地址后面</p>
 
       
     </div>
@@ -560,7 +561,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

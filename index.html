@@ -349,6 +349,14 @@
 <p>微服务框架</p>
 <p>Spring Cloud</p>
 <h1 id="spring-cloud搭建微服务框架"><a href="#spring-cloud搭建微服务框架" class="headerlink" title="spring cloud搭建微服务框架"></a>spring cloud搭建微服务框架</h1><p>分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包</p>
+<p>注册中心</p>
+<p>网关</p>
+<p>链路跟踪</p>
+<p>服务：合作</p>
+<p>配置文件</p>
+<p>父：</p>
+<h2 id="合作中心"><a href="#合作中心" class="headerlink" title="合作中心"></a>合作中心</h2><p>业务：插入数据库，发送partner</p>
+<p>zuul</p>
 
           
         
@@ -487,8 +495,9 @@
 <h4 id="2-配置规则"><a href="#2-配置规则" class="headerlink" title="2 配置规则"></a>2 配置规则</h4><h5 id="1-url-后带-（则不会加上location中的匹配路径）"><a href="#1-url-后带-（则不会加上location中的匹配路径）" class="headerlink" title="1 url 后带 / （则不会加上location中的匹配路径）"></a>1 url 后带 / （则不会加上location中的匹配路径）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">	root /data/www/html;</span><br><span class="line">	proxy_pass http://test.yemao.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>访问 <a href="http://my.yemao.com/proxy/index.html，其实是访问到了" target="_blank" rel="noopener">http://my.yemao.com/proxy/index.html，其实是访问到了</a> <a href="http://test.yemao.com/index.html" target="_blank" rel="noopener">http://test.yemao.com/index.html</a></p>
-<h5 id="2-url中不带-（则会加上location中的匹配路径）"><a href="#2-url中不带-（则会加上location中的匹配路径）" class="headerlink" title="2 url中不带 / （则会加上location中的匹配路径）"></a>2 url中不带 / （则会加上location中的匹配路径）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">	root /data/www/html;</span><br><span class="line">	proxy_pass http://test.yemao.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-url中不带-（则会加上location中的匹配路径）"><a href="#2-url中不带-（则会加上location中的匹配路径）" class="headerlink" title="2 url中不带 / （则会加上location中的匹配路径）"></a>2 url中不带 / （则会加上location中的匹配路径）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">	root /data/www/html;</span><br><span class="line">	proxy_pass http://test.yemao.com;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>我们访问 <a href="http://my.yemao.com/proxy/index.html" target="_blank" rel="noopener">http://my.yemao.com/proxy/index.html</a>, 其实是访问到了 <a href="http://test.yemao.com/proxy/index.html" target="_blank" rel="noopener">http://test.yemao.com/proxy/index.html</a>, 这里将 location 中匹配的 proxy 也自动加到了代理转发的地址后面</p>
 
           
         
@@ -1779,7 +1788,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
