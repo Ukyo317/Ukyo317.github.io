@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="微服务, Spring, Spring Cloud,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="aaaa 数据库设计 非关系型数据库 关系型数据库 业务层 环境配置 微服务框架 Spring Cloud spring cloud搭建微服务框架分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包 注册中心 网关 链路跟踪 服务：合作 配置文件 父： 合作中心业务：插入数据库，发送partner 传参 sponsor:  userId, cooperateId, obs">
+<meta name="description" content="shh 设计模式@transactional的使用 分布式事务解决方案概念： 本地事务(Local Transaction)：基于单个服务单一数据库访问的事务。 分布式事务：分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。 CAP theory: BASE theory: 常见解决方案： 二阶段协议，三阶段协议，MQ 事务消息，补偿，">
+<meta name="keywords" content="微服务, Spring, Spring Cloud">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统开发流程">
-<meta property="og:url" content="https://ukyo317.github.io/2019/12/27/系统开发流程/index.html">
+<meta property="og:title" content="微服务学习笔记">
+<meta property="og:url" content="https://ukyo317.github.io/2020/01/12/微服务学习笔记/index.html">
 <meta property="og:site_name" content="Ukyo Chen&#39;s blogs">
-<meta property="og:description" content="aaaa 数据库设计 非关系型数据库 关系型数据库 业务层 环境配置 微服务框架 Spring Cloud spring cloud搭建微服务框架分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包 注册中心 网关 链路跟踪 服务：合作 配置文件 父： 合作中心业务：插入数据库，发送partner 传参 sponsor:  userId, cooperateId, obs">
+<meta property="og:description" content="shh 设计模式@transactional的使用 分布式事务解决方案概念： 本地事务(Local Transaction)：基于单个服务单一数据库访问的事务。 分布式事务：分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。 CAP theory: BASE theory: 常见解决方案： 二阶段协议，三阶段协议，MQ 事务消息，补偿，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-06T06:29:03.454Z">
+<meta property="og:updated_time" content="2020-01-12T12:10:05.867Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统开发流程">
-<meta name="twitter:description" content="aaaa 数据库设计 非关系型数据库 关系型数据库 业务层 环境配置 微服务框架 Spring Cloud spring cloud搭建微服务框架分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包 注册中心 网关 链路跟踪 服务：合作 配置文件 父： 合作中心业务：插入数据库，发送partner 传参 sponsor:  userId, cooperateId, obs">
+<meta name="twitter:title" content="微服务学习笔记">
+<meta name="twitter:description" content="shh 设计模式@transactional的使用 分布式事务解决方案概念： 本地事务(Local Transaction)：基于单个服务单一数据库访问的事务。 分布式事务：分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。 CAP theory: BASE theory: 常见解决方案： 二阶段协议，三阶段协议，MQ 事务消息，补偿，">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://ukyo317.github.io/2019/12/27/系统开发流程/">
+  <link rel="canonical" href="https://ukyo317.github.io/2020/01/12/微服务学习笔记/">
 
 
 
 
 
-  <title>系统开发流程 | Ukyo Chen's blogs</title>
+  <title>微服务学习笔记 | Ukyo Chen's blogs</title>
   
 
 
@@ -272,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/27/系统开发流程/">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2020/01/12/微服务学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ukyo Chen">
@@ -289,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">系统开发流程</h1>
+          <h1 class="post-title" itemprop="name headline">微服务学习笔记</h1>
         
 
         <div class="post-meta">
@@ -301,8 +302,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-27T16:18:54+08:00">
-                2019-12-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-12T20:05:02+08:00">
+                2020-01-12
               </time>
             
 
@@ -339,32 +340,15 @@
       
 
       
-        <p>aaaa</p>
-<p>数据库设计</p>
-<p>非关系型数据库</p>
-<p>关系型数据库</p>
-<p>业务层</p>
-<p>环境配置</p>
-<p>微服务框架</p>
-<p>Spring Cloud</p>
-<h1 id="spring-cloud搭建微服务框架"><a href="#spring-cloud搭建微服务框架" class="headerlink" title="spring cloud搭建微服务框架"></a>spring cloud搭建微服务框架</h1><p>分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包</p>
-<p>注册中心</p>
-<p>网关</p>
-<p>链路跟踪</p>
-<p>服务：合作</p>
-<p>配置文件</p>
-<p>父：</p>
-<h2 id="合作中心"><a href="#合作中心" class="headerlink" title="合作中心"></a>合作中心</h2><p>业务：插入数据库，发送partner</p>
-<p>传参</p>
-<p>sponsor:  userId, cooperateId, observerId, startTime</p>
-<p>zuul</p>
-<p>problems</p>
-<p>extends JpaRepository&lt;&gt;() {}</p>
-<p>JpaR的泛型参数</p>
-<p>接口的泛型参数</p>
-<p>jpa page查询，pagerequest</p>
-<p>Knowledge points:</p>
-<p>BeanUtils.copyProperties</p>
+        <p>shh</p>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><p>@transactional的使用</p>
+<h2 id="分布式事务解决方案"><a href="#分布式事务解决方案" class="headerlink" title="分布式事务解决方案"></a>分布式事务解决方案</h2><p>概念：</p>
+<p>本地事务(Local Transaction)：基于单个服务单一数据库访问的事务。</p>
+<p>分布式事务：分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。</p>
+<p>CAP theory:</p>
+<p>BASE theory:</p>
+<p>常见解决方案：</p>
+<p>二阶段协议，三阶段协议，MQ 事务消息，补偿，Saga，TCC等。</p>
 
       
     </div>
@@ -380,6 +364,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/微服务-Spring-Spring-Cloud/" rel="tag"># 微服务, Spring, Spring Cloud</a>
+          
+        </div>
+      
 
       
       
@@ -389,8 +379,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/27/network/" rel="next" title="network">
-                <i class="fa fa-chevron-left"></i> network
+              <a href="/2019/12/27/系统开发流程/" rel="next" title="系统开发流程">
+                <i class="fa fa-chevron-left"></i> 系统开发流程
               </a>
             
           </div>
@@ -399,8 +389,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/12/微服务学习笔记/" rel="prev" title="微服务学习笔记">
-                微服务学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/05/RMQ/" rel="prev" title="RMQ">
+                RMQ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -533,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-cloud搭建微服务框架"><span class="nav-number">1.</span> <span class="nav-text">spring cloud搭建微服务框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#合作中心"><span class="nav-number">1.1.</span> <span class="nav-text">合作中心</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">1.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式事务解决方案"><span class="nav-number">1.1.</span> <span class="nav-text">分布式事务解决方案</span></a></li></ol></li></ol></div>
             
 
           </div>

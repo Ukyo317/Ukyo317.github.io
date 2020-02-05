@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="RabbitMQ, 消息中间件,">
 
 
 
@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="aaaa 数据库设计 非关系型数据库 关系型数据库 业务层 环境配置 微服务框架 Spring Cloud spring cloud搭建微服务框架分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包 注册中心 网关 链路跟踪 服务：合作 配置文件 父： 合作中心业务：插入数据库，发送partner 传参 sponsor:  userId, cooperateId, obs">
+<meta name="description" content="主流消息中间件ActiveMQ综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好 集群架构模式Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 Network模式 Network网关 MQ衡量指标服务性能，数据存储，集群架构 KAFKA">
+<meta name="keywords" content="RabbitMQ, 消息中间件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统开发流程">
-<meta property="og:url" content="https://ukyo317.github.io/2019/12/27/系统开发流程/index.html">
+<meta property="og:title" content="RMQ">
+<meta property="og:url" content="https://ukyo317.github.io/2020/02/05/RMQ/index.html">
 <meta property="og:site_name" content="Ukyo Chen&#39;s blogs">
-<meta property="og:description" content="aaaa 数据库设计 非关系型数据库 关系型数据库 业务层 环境配置 微服务框架 Spring Cloud spring cloud搭建微服务框架分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包 注册中心 网关 链路跟踪 服务：合作 配置文件 父： 合作中心业务：插入数据库，发送partner 传参 sponsor:  userId, cooperateId, obs">
+<meta property="og:description" content="主流消息中间件ActiveMQ综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好 集群架构模式Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 Network模式 Network网关 MQ衡量指标服务性能，数据存储，集群架构 KAFKA">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-06T06:29:03.454Z">
+<meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580895975777.png">
+<meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580896072943.png">
+<meta property="og:updated_time" content="2020-02-05T09:49:15.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统开发流程">
-<meta name="twitter:description" content="aaaa 数据库设计 非关系型数据库 关系型数据库 业务层 环境配置 微服务框架 Spring Cloud spring cloud搭建微服务框架分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包 注册中心 网关 链路跟踪 服务：合作 配置文件 父： 合作中心业务：插入数据库，发送partner 传参 sponsor:  userId, cooperateId, obs">
+<meta name="twitter:title" content="RMQ">
+<meta name="twitter:description" content="主流消息中间件ActiveMQ综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好 集群架构模式Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 Network模式 Network网关 MQ衡量指标服务性能，数据存储，集群架构 KAFKA">
+<meta name="twitter:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580895975777.png">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://ukyo317.github.io/2019/12/27/系统开发流程/">
+  <link rel="canonical" href="https://ukyo317.github.io/2020/02/05/RMQ/">
 
 
 
 
 
-  <title>系统开发流程 | Ukyo Chen's blogs</title>
+  <title>RMQ | Ukyo Chen's blogs</title>
   
 
 
@@ -272,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/27/系统开发流程/">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2020/02/05/RMQ/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ukyo Chen">
@@ -289,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">系统开发流程</h1>
+          <h1 class="post-title" itemprop="name headline">RMQ</h1>
         
 
         <div class="post-meta">
@@ -301,8 +305,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-27T16:18:54+08:00">
-                2019-12-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-05T17:41:04+08:00">
+                2020-02-05
               </time>
             
 
@@ -339,33 +343,14 @@
       
 
       
-        <p>aaaa</p>
-<p>数据库设计</p>
-<p>非关系型数据库</p>
-<p>关系型数据库</p>
-<p>业务层</p>
-<p>环境配置</p>
-<p>微服务框架</p>
-<p>Spring Cloud</p>
-<h1 id="spring-cloud搭建微服务框架"><a href="#spring-cloud搭建微服务框架" class="headerlink" title="spring cloud搭建微服务框架"></a>spring cloud搭建微服务框架</h1><p>分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包</p>
-<p>注册中心</p>
-<p>网关</p>
-<p>链路跟踪</p>
-<p>服务：合作</p>
-<p>配置文件</p>
-<p>父：</p>
-<h2 id="合作中心"><a href="#合作中心" class="headerlink" title="合作中心"></a>合作中心</h2><p>业务：插入数据库，发送partner</p>
-<p>传参</p>
-<p>sponsor:  userId, cooperateId, observerId, startTime</p>
-<p>zuul</p>
-<p>problems</p>
-<p>extends JpaRepository&lt;&gt;() {}</p>
-<p>JpaR的泛型参数</p>
-<p>接口的泛型参数</p>
-<p>jpa page查询，pagerequest</p>
-<p>Knowledge points:</p>
-<p>BeanUtils.copyProperties</p>
-
+        <h1 id="主流消息中间件"><a href="#主流消息中间件" class="headerlink" title="主流消息中间件"></a>主流消息中间件</h1><h2 id="ActiveMQ"><a href="#ActiveMQ" class="headerlink" title="ActiveMQ"></a>ActiveMQ</h2><h3 id="综合评价"><a href="#综合评价" class="headerlink" title="综合评价"></a>综合评价</h3><p>老牌，性能一般</p>
+<p>阻塞，消息堆积过多<br>存储方式落后<br>集群架构模式较好</p>
+<h3 id="集群架构模式"><a href="#集群架构模式" class="headerlink" title="集群架构模式"></a>集群架构模式</h3><h4 id="Master-Slave模式"><a href="#Master-Slave模式" class="headerlink" title="Master-Slave模式"></a>Master-Slave模式</h4><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580895975777.png" alt="1580895975777"></p>
+<p>Zookeeper协调，高可用切换<br>主节点提供服务，从节点备份</p>
+<h4 id="Network模式"><a href="#Network模式" class="headerlink" title="Network模式"></a>Network模式</h4><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580896072943.png" alt="1580896072943"></p>
+<p>Network网关</p>
+<h3 id="MQ衡量指标"><a href="#MQ衡量指标" class="headerlink" title="MQ衡量指标"></a>MQ衡量指标</h3><p>服务性能，数据存储，集群架构</p>
+<h2 id="KAFKA"><a href="#KAFKA" class="headerlink" title="KAFKA"></a>KAFKA</h2>
       
     </div>
     
@@ -380,6 +365,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/RabbitMQ-消息中间件/" rel="tag"># RabbitMQ, 消息中间件</a>
+          
+        </div>
+      
 
       
       
@@ -389,8 +380,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/27/network/" rel="next" title="network">
-                <i class="fa fa-chevron-left"></i> network
+              <a href="/2020/01/12/微服务学习笔记/" rel="next" title="微服务学习笔记">
+                <i class="fa fa-chevron-left"></i> 微服务学习笔记
               </a>
             
           </div>
@@ -398,10 +389,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/12/微服务学习笔记/" rel="prev" title="微服务学习笔记">
-                微服务学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -533,7 +520,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-cloud搭建微服务框架"><span class="nav-number">1.</span> <span class="nav-text">spring cloud搭建微服务框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#合作中心"><span class="nav-number">1.1.</span> <span class="nav-text">合作中心</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主流消息中间件"><span class="nav-number">1.</span> <span class="nav-text">主流消息中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ActiveMQ"><span class="nav-number">1.1.</span> <span class="nav-text">ActiveMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#综合评价"><span class="nav-number">1.1.1.</span> <span class="nav-text">综合评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群架构模式"><span class="nav-number">1.1.2.</span> <span class="nav-text">集群架构模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Master-Slave模式"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Master-Slave模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Network模式"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Network模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MQ衡量指标"><span class="nav-number">1.1.3.</span> <span class="nav-text">MQ衡量指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KAFKA"><span class="nav-number">1.2.</span> <span class="nav-text">KAFKA</span></a></li></ol></li></ol></div>
             
 
           </div>
