@@ -79,20 +79,26 @@
 
 
 
-<meta name="description" content="主流消息中间件ActiveMQ综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好 集群架构模式Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 Network模式 Network网关 MQ衡量指标服务性能，数据存储，集群架构 KAFKA">
+<meta name="description" content="1 主流消息中间件1.1 ActiveMQ1.1.1 综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好API很完善，适合中小型互联网公司 1.1.2 集群架构模式1.1.2.1 Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 1.1.2.2 Network模式 Network网关 1.1.3 MQ衡量指标服务性能，数据存储，集群架构">
 <meta name="keywords" content="RabbitMQ, 消息中间件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RMQ">
 <meta property="og:url" content="https://ukyo317.github.io/2020/02/05/RMQ/index.html">
 <meta property="og:site_name" content="Ukyo Chen&#39;s blogs">
-<meta property="og:description" content="主流消息中间件ActiveMQ综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好 集群架构模式Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 Network模式 Network网关 MQ衡量指标服务性能，数据存储，集群架构 KAFKA">
+<meta property="og:description" content="1 主流消息中间件1.1 ActiveMQ1.1.1 综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好API很完善，适合中小型互联网公司 1.1.2 集群架构模式1.1.2.1 Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 1.1.2.2 Network模式 Network网关 1.1.3 MQ衡量指标服务性能，数据存储，集群架构">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580895975777.png">
 <meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580896072943.png">
-<meta property="og:updated_time" content="2020-02-05T09:49:15.735Z">
+<meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581062195597.png">
+<meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581062434627.png">
+<meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581064706887.png">
+<meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581065809587.png">
+<meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175026766.png">
+<meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175045067.png">
+<meta property="og:updated_time" content="2020-02-08T15:18:54.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RMQ">
-<meta name="twitter:description" content="主流消息中间件ActiveMQ综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好 集群架构模式Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 Network模式 Network网关 MQ衡量指标服务性能，数据存储，集群架构 KAFKA">
+<meta name="twitter:description" content="1 主流消息中间件1.1 ActiveMQ1.1.1 综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好API很完善，适合中小型互联网公司 1.1.2 集群架构模式1.1.2.1 Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 1.1.2.2 Network模式 Network网关 1.1.3 MQ衡量指标服务性能，数据存储，集群架构">
 <meta name="twitter:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580895975777.png">
 
 
@@ -343,14 +349,32 @@
       
 
       
-        <h1 id="主流消息中间件"><a href="#主流消息中间件" class="headerlink" title="主流消息中间件"></a>主流消息中间件</h1><h2 id="ActiveMQ"><a href="#ActiveMQ" class="headerlink" title="ActiveMQ"></a>ActiveMQ</h2><h3 id="综合评价"><a href="#综合评价" class="headerlink" title="综合评价"></a>综合评价</h3><p>老牌，性能一般</p>
-<p>阻塞，消息堆积过多<br>存储方式落后<br>集群架构模式较好</p>
-<h3 id="集群架构模式"><a href="#集群架构模式" class="headerlink" title="集群架构模式"></a>集群架构模式</h3><h4 id="Master-Slave模式"><a href="#Master-Slave模式" class="headerlink" title="Master-Slave模式"></a>Master-Slave模式</h4><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580895975777.png" alt="1580895975777"></p>
+        <h1 id="1-主流消息中间件"><a href="#1-主流消息中间件" class="headerlink" title="1 主流消息中间件"></a>1 主流消息中间件</h1><h2 id="1-1-ActiveMQ"><a href="#1-1-ActiveMQ" class="headerlink" title="1.1 ActiveMQ"></a>1.1 ActiveMQ</h2><h3 id="1-1-1-综合评价"><a href="#1-1-1-综合评价" class="headerlink" title="1.1.1 综合评价"></a>1.1.1 综合评价</h3><p>老牌，性能一般</p>
+<p>阻塞，消息堆积过多<br>存储方式落后<br>集群架构模式较好<br>API很完善，适合中小型互联网公司</p>
+<h3 id="1-1-2-集群架构模式"><a href="#1-1-2-集群架构模式" class="headerlink" title="1.1.2 集群架构模式"></a>1.1.2 集群架构模式</h3><h4 id="1-1-2-1-Master-Slave模式"><a href="#1-1-2-1-Master-Slave模式" class="headerlink" title="1.1.2.1 Master-Slave模式"></a>1.1.2.1 Master-Slave模式</h4><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580895975777.png" alt="1580895975777"></p>
 <p>Zookeeper协调，高可用切换<br>主节点提供服务，从节点备份</p>
-<h4 id="Network模式"><a href="#Network模式" class="headerlink" title="Network模式"></a>Network模式</h4><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580896072943.png" alt="1580896072943"></p>
+<h4 id="1-1-2-2-Network模式"><a href="#1-1-2-2-Network模式" class="headerlink" title="1.1.2.2 Network模式"></a>1.1.2.2 Network模式</h4><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580896072943.png" alt="1580896072943"></p>
 <p>Network网关</p>
-<h3 id="MQ衡量指标"><a href="#MQ衡量指标" class="headerlink" title="MQ衡量指标"></a>MQ衡量指标</h3><p>服务性能，数据存储，集群架构</p>
-<h2 id="KAFKA"><a href="#KAFKA" class="headerlink" title="KAFKA"></a>KAFKA</h2>
+<h3 id="1-1-3-MQ衡量指标"><a href="#1-1-3-MQ衡量指标" class="headerlink" title="1.1.3 MQ衡量指标"></a>1.1.3 MQ衡量指标</h3><p>服务性能，数据存储，集群架构</p>
+<h2 id="1-2-KAFKA"><a href="#1-2-KAFKA" class="headerlink" title="1.2 KAFKA"></a>1.2 KAFKA</h2><p>关注于性能，对数据可靠性要求不高（不适合消息的可靠性投递）。<br>适合日志收集（性能很好）。</p>
+<p>Kafka集群模式</p>
+<p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581062195597.png" alt="1581062195597"></p>
+<p>内存级别有三份数据</p>
+<h2 id="1-3-RocketMQ"><a href="#1-3-RocketMQ" class="headerlink" title="1.3 RocketMQ"></a>1.3 RocketMQ</h2><p>纯Java开发，具有高吞吐量、高可用性、适合大规模分布式系统应用<br>阿里内部广泛应用：交易、充值、流计算、消息推送、日志流式处理、binglog分发等场景<br>放弃了zookeeper<br> 集群结构模式很多<br>zero copy</p>
+<p>高性能，可靠性，支持分布式事务<br>商业版收费，很多功能不对外提供</p>
+<p>集群拓扑<br><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581062434627.png" alt="1581062434627"></p>
+<p>需要频繁读写，zookeeper性能不够，所以换成了name server集群</p>
+<p>分布式事务，主从节点切换：没有这两个功能，需要收费</p>
+<h2 id="1-4-RabbitMQ"><a href="#1-4-RabbitMQ" class="headerlink" title="1.4 RabbitMQ"></a>1.4 RabbitMQ</h2><p>Erlang语言开发<br>基于AMQP协议实现，AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。更多用在企业系统内，对数据一致性、稳定性和可靠性要求很高的场景，对性能和吞吐量的要求还在其次。</p>
+<p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581064706887.png" alt="1581064706887"></p>
+<h1 id="2-RabbitMQ"><a href="#2-RabbitMQ" class="headerlink" title="2 RabbitMQ"></a>2 RabbitMQ</h1><h2 id="2-1-特性"><a href="#2-1-特性" class="headerlink" title="2.1 特性"></a>2.1 特性</h2><p>与SpringAMQP完美的整合，API丰富<br>集群模式丰富，表达式配置，HA模式，镜像队列模型<br>保证数据不丢失的前提做到高可靠性、可用性</p>
+<h2 id="2-2-高性能的原因"><a href="#2-2-高性能的原因" class="headerlink" title="2.2 高性能的原因"></a>2.2 高性能的原因</h2><p>采用Erlang语言：<br>Erlang语言最初用于交换机领域的架构模式，这样使得RabbitMQ在Broker之间进行数据交互（交换、同步）的性能非常优秀<br>Erlang有着和原生Socket一样的延迟（关注点：延迟、吞吐量、性能）</p>
+<h2 id="2-3-AMQP高级消息队列协议"><a href="#2-3-AMQP高级消息队列协议" class="headerlink" title="2.3 AMQP高级消息队列协议"></a>2.3 AMQP高级消息队列协议</h2><p>AMQP协议模型<br><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581065809587.png" alt="1581065809587"></p>
+<p>Server: 节点<br>Publisher: 和server建立连接，指定virtual host，将消息发送到Exchange，接下来就不用再操作（RabbitMQ解耦）。</p>
+<p>Server: 又称Broker，接受客户端连接，实现AMQP实体业务。<br>Connection: 连接，应用程序与Broker的网络连接。<br>Channel: 网络信道，几乎所有的操作都在channel中进行，Channel是进行消息读写的通道。客户端可以建立多个Channel，每个Channel代表一个会话任务。<br>数据读写，删除队列，删除Exchange<br>类似于数据库中的session，RMQ需要创建一个Channel来进行操作<br>Message: 消息，服务器和应用程序之间传送的数据，由Properties和Body组成。Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性；Body则是消息体内容。<br>Virtual host: 虚拟地址，用于进行逻辑隔离，最上层的消息路由。一个Virtual Host里可以有多个Exchange和Queue，同一个Virtual Host里面不能有相同名称的Exchange和Queue<br>Exchange: 交换机，接收消息，根据路由键转发消息到绑定的队列。<br>Binding: Exchange和Queue之间的虚拟连接，binding中可以包含routing key。<br>Routing key: 一个路由规则，虚拟机可用它来确定如何路由一个特定消息。<br>Queue: 也称为Message Queue，保存消息并将消息转发给消费者。</p>
+<h2 id="2-4-RabbitMQ的整体架构"><a href="#2-4-RabbitMQ的整体架构" class="headerlink" title="2.4 RabbitMQ的整体架构"></a>2.4 RabbitMQ的整体架构</h2><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175026766.png" alt="1581175026766"></p>
+<p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175045067.png" alt="1581175045067"></p>
+
       
     </div>
     
@@ -389,6 +413,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/05/离别是一首诗/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -465,7 +493,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -520,7 +548,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主流消息中间件"><span class="nav-number">1.</span> <span class="nav-text">主流消息中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ActiveMQ"><span class="nav-number">1.1.</span> <span class="nav-text">ActiveMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#综合评价"><span class="nav-number">1.1.1.</span> <span class="nav-text">综合评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集群架构模式"><span class="nav-number">1.1.2.</span> <span class="nav-text">集群架构模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Master-Slave模式"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Master-Slave模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Network模式"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Network模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MQ衡量指标"><span class="nav-number">1.1.3.</span> <span class="nav-text">MQ衡量指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KAFKA"><span class="nav-number">1.2.</span> <span class="nav-text">KAFKA</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-主流消息中间件"><span class="nav-number">1.</span> <span class="nav-text">1 主流消息中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-ActiveMQ"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 ActiveMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-综合评价"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 综合评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-集群架构模式"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 集群架构模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-1-Master-Slave模式"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1.1.2.1 Master-Slave模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-2-Network模式"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">1.1.2.2 Network模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-MQ衡量指标"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3 MQ衡量指标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-KAFKA"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 KAFKA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-RocketMQ"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 RocketMQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-RabbitMQ"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 RabbitMQ</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-RabbitMQ"><span class="nav-number">2.</span> <span class="nav-text">2 RabbitMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-特性"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-高性能的原因"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 高性能的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-AMQP高级消息队列协议"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 AMQP高级消息队列协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-RabbitMQ的整体架构"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 RabbitMQ的整体架构</span></a></li></ol></li></ol></div>
             
 
           </div>
