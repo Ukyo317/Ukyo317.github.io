@@ -269,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/15/Maven/">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2020/03/15/Multiprocess/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ukyo Chen">
@@ -288,7 +288,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/15/Maven/" itemprop="url">Maven</a></h1>
+                <a class="post-title-link" href="/2020/03/15/Multiprocess/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-15T21:42:09+08:00">
-                2019-12-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-15T23:52:37+08:00">
+                2020-03-15
               </time>
             
 
@@ -310,28 +310,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Maven/" itemprop="url" rel="index">
-                    <span itemprop="name">Maven</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -362,26 +340,59 @@
       
         
           
-            <p>Maven</p>
-<ol>
-<li><p>Create a hellomaven</p>
-<p>struts2:</p>
-<p>​    pom.xml</p>
-<p>​        保留基本框架</p>
-<p>​        <groupid>com.imooc.maven01</groupid>      // groupId的值就是项目的包名</p>
-<p>​        <artifactid>maven01-model</artifactid>    // artifactId的值是模块名</p>
-<p>​        <version>0.01SANPSHOT</version></p>
-<p>​        <dependencies></dependencies></p>
-<p>​            <dependency></dependency></p>
-<p>​                <groupid>junit</groupid>      // 用来测试 </p>
-<p>​                <artifactid>junit</artifactid>   </p>
-<p>​                <version>4.10</version></p>
-<p>​            <dependency></dependency></p>
-<p>​        <dependencies></dependencies></p>
-<p>Note：</p>
-<p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1566916158800.png" alt="1566916158800">    <img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1566915154622.png" alt="1566915154622"></p>
-</li>
+            <h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>join() 定义在Thread.java中。<br>join() 的作用：让“主线程”等待“子线程”结束之后才能继续运行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Son s = <span class="keyword">new</span> Son();</span><br><span class="line">        s.start();</span><br><span class="line">        s.join();</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：<br>上面的有两个类Father(主线程类)和Son(子线程类)。因为Son是在Father中创建并启动的，所以，Father是主线程类，Son是子线程类。<br>在Father主线程中，通过new Son()新建“子线程s”。接着通过s.start()启动“子线程s”，并且调用s.join()。在调用s.join()之后，Father主线程会一直等待，直到“子线程s”运行完毕；在“子线程s”运行完毕之后，Father主线程才能接着运行。 这也就是我们所说的“join()的作用，是让主线程会等待子线程结束之后才能继续运行”！</p>
+<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">join</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    join(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">long</span> millis)</span></span></span><br><span class="line"><span class="function"><span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> base = System.currentTimeMillis();</span><br><span class="line">    <span class="keyword">long</span> now = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (millis &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"timeout value is negative"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (millis == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (isAlive()) &#123;</span><br><span class="line">            wait(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">while</span> (isAlive()) &#123;</span><br><span class="line">            <span class="keyword">long</span> delay = millis - now;</span><br><span class="line">            <span class="keyword">if</span> (delay &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            wait(delay);</span><br><span class="line">            now = System.currentTimeMillis() - base;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明：</strong><br>从代码中，我们可以发现。当millis==0时，会进入while(isAlive())循环；即只要子线程是活的，主线程就不停的等待。<br>我们根据上面解释join()作用时的代码来理解join()的用法！</p>
+<p><strong>问题：</strong><br>虽然s.join()被调用的地方是发生在“Father主线程”中，但是s.join()是通过“子线程s”去调用的join()。那么，join()方法中的isAlive()应该是判断“子线程s”是不是Alive状态；对应的wait(0)也应该是“让子线程s”等待才对。但如果是这样的话，s.join()的作用怎么可能是“让主线程等待，直到子线程s完成为止”呢，应该是让”子线程等待才对(因为调用子线程对象s的wait方法嘛)”？</p>
+<p>答案：wait()的作用<strong>是让“当前线程”等待，而这里的“当前线程”是指当前在CPU上运行的线程</strong>。所以，虽然是调用子线程的wait()方法，但是它是通过“主线程”去调用的；所以，休眠的是主线程，而不是“子线程”！</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p><strong>面试题：</strong><br><em>现在有T1、T2、T3三个线程，你怎样保证T2在T1执行完后执行，T3在T2执行完后执行？</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * join&lt;p&gt;</span></span><br><span class="line"><span class="comment"> * join()的作用是让“主线程”等待“子线程”结束之后才能继续运行</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  现在有T1、T2、T3三个线程，你怎样保证T2在T1执行完后执行，T3在T2执行完后执行</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JoinTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread t3 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> MyThread3());</span><br><span class="line">        t3.setName(<span class="string">"线程3"</span>);</span><br><span class="line">        t3.start();</span><br><span class="line">        t3.join();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(Thread.currentThread().getName()+<span class="string">"停止"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread1</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//t1启动</span></span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"启动"</span>);</span><br><span class="line"></span><br><span class="line">            Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"停止"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread2</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//启动t1,让t2等待t1执行完成</span></span><br><span class="line">            Thread t1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> MyThread1());</span><br><span class="line">            t1.setName(<span class="string">"线程1"</span>);</span><br><span class="line">            t1.start();</span><br><span class="line">            t1.join();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//t2启动</span></span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"启动"</span>);</span><br><span class="line"></span><br><span class="line">            Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"停止"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread3</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//启动t2,让t3等待t2执行完成</span></span><br><span class="line">            MyThread2 t2 = <span class="keyword">new</span> MyThread2();</span><br><span class="line">            t2.setName(<span class="string">"线程2"</span>);</span><br><span class="line">            t2.start();</span><br><span class="line">            t2.join();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//启动t3</span></span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"启动"</span>);</span><br><span class="line"></span><br><span class="line">            Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"停止"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">线程1启动</span><br><span class="line">线程1停止</span><br><span class="line">线程2启动</span><br><span class="line">线程2停止</span><br><span class="line">线程3启动</span><br><span class="line">线程3停止</span><br><span class="line">main停止</span><br></pre></td></tr></table></figure>
+
+<h1 id="Java-Concurrency"><a href="#Java-Concurrency" class="headerlink" title="Java Concurrency"></a>Java Concurrency</h1><h2 id="Java内置锁和显式锁"><a href="#Java内置锁和显式锁" class="headerlink" title="Java内置锁和显式锁"></a>Java内置锁和显式锁</h2><h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><ul>
+<li>当synchronized作用于普通方法是，锁对象是this；</li>
+<li>当synchronized作用于静态方法是，锁对象是当前类的Class对象；</li>
+<li>当synchronized作用于代码块时，锁对象是synchronized(obj)中的这个obj。(Lock Reentrance)</li>
+</ul>
+<h4 id="Lock-Reentrance"><a href="#Lock-Reentrance" class="headerlink" title="Lock Reentrance"></a>Lock Reentrance</h4><p>reference: <a href="http://tutorials.jenkov.com/java-concurrency/locks.html" target="_blank" rel="noopener">http://tutorials.jenkov.com/java-concurrency/locks.html</a></p>
+<p>Synchronized blocks in Java are <strong>reentrant</strong>. This means, that if a Java thread enters a synchronized block of code, and thereby take the lock on the <strong>monitor object</strong> the block is synchronized on, the thread <u>can enter other Java code blocks synchronized on the same monitor object.</u> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Reentrant</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    inner();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="title">inner</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do something</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Notice how both <code>outer()</code> and <code>inner()</code> are declared synchronized, which in Java is equivalent to a <code>synchronized(this)</code> block. If a thread calls <code>outer()</code> there is no problem calling inner() from inside <code>outer()</code>, <u>since both methods (or blocks) are synchronized on the same monitor object (“<strong>this</strong>“)</u>. If a thread already holds the lock on a monitor object, it has access to all blocks synchronized on the same monitor object. This is called reentrance. The thread can reenter any block of code for which it already holds the lock.</p>
+<p>不可重入 – 可重入</p>
+<h2 id="Lock-Fairness"><a href="#Lock-Fairness" class="headerlink" title="Lock Fairness"></a>Lock Fairness</h2><p>wait()</p>
+<h3 id="Reentrantlock"><a href="#Reentrantlock" class="headerlink" title="Reentrantlock"></a>Reentrantlock</h3><ol>
+<li>我们想给锁加个等待时间超时时间，超时还未获得锁就放弃，不至于无限等下去；</li>
+<li>我们想以可中断的方式获取锁，这样外部线程给我们发一个中断信号就能唤起等待锁的线程；</li>
+<li>我们想为锁维持多个等待队列，比如一个生产者队列，一个消费者队列，一边提高锁的效率。</li>
+<li>获取锁失败的时候，对系统进行处理以维护系统在正确的状态。</li>
 </ol>
+<p>显式锁(ReentrantLock)正式为了解决这些灵活需求而生。ReentrantLock的字面意思是<strong><em>可重入锁</em></strong>，可重入的意思是<em>线程可以同时多次请求同一把锁，而不会自己导致自己死锁</em>。</p>
+<ul>
+<li><p>可定时：<code>RenentrantLock.tryLock(long timeout, TimeUnit unit)</code>提供了一种以定时结束等待的方式，如果线程在指定的时间内没有获得锁，该方法就会返回false并结束线程等待。</p>
+</li>
+<li><p>可中断：你一定见过InterruptedException，很多跟多线程相关的方法会抛出该异常，这个异常并不是一个缺陷导致的负担，而是一种必须，或者说是一件好事。可中断性给我们提供了一种让线程提前结束的方式（而不是非得等到线程执行结束），这对于要取消耗时的任务非常有用。对于内置锁，线程拿不到内置锁就会一直等待，除了获取锁没有其他办法能够让其结束等待。<code>RenentrantLock.lockInterruptibly()</code>给我们提供了一种以中断结束等待的方式。</p>
+</li>
+<li><p>条件队列(condition queue)：线程在获取锁之后，可能会由于等待某个条件发生而进入<strong>等待状态</strong>（内置锁通过<code>Object.wait()</code>方法，显式锁通过<code>Condition.await()</code>方法），<u>进入等待状态的线程会挂起并自动释放锁，这些线程会被放入到条件队列当中</u>。synchronized对应的只有一个条件队列，而ReentrantLock可以有多个条件队列，多个队列有什么好处呢？请往下看。</p>
+</li>
+<li><p>条件谓词：线程在获取锁之后，有时候还需要等待某个条件满足才能做事情，比如生产者需要等到“缓存不满”才能往队列里放入消息，而消费者需要等到“缓存非空”才能从队列里取出消息。这些条件被称作条件谓词，线程需要先获取锁，然后判断条件谓词是否满足，如果不满足就不往下执行，相应的线程就会放弃执行权并自动释放锁。</p>
+<p>使用同一把锁的不同的线程可能有不同的条件谓词，如果只有一个条件队列，当某个条件谓词满足时就无法判断该唤醒条件队列里的哪一个线程；但是如果每个条件谓词都有一个单独的条件队列，当某个条件满足时我们就知道应该唤醒对应队列上的线程（内置锁通过<code>Object.notify()</code>或者<code>Object.notifyAll()</code>方法唤醒，显式锁通过<code>Condition.signal()</code>或者<code>Condition.signalAll()</code>方法唤醒）。这就是多个条件队列的好处。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显式锁的使用示例</span></span><br><span class="line">ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取锁，这是跟synchronized关键字对应的用法。</span></span><br><span class="line">lock.lock();</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="comment">// your code</span></span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">    lock.unlock();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可定时，超过指定时间为得到锁就放弃</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    lock.tryLock(<span class="number">10</span>, TimeUnit.SECONDS);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// your code</span></span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e1) &#123;</span><br><span class="line">    <span class="comment">// exception handling</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可中断，等待获取锁的过程中线程可被中断</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// your code</span></span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    <span class="comment">// exception handling</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多个等待队列，具体参考[ArrayBlockingQueue](https://github.com/CarpenterLee/JCRecipes/blob/master/markdown/ArrayBlockingQueue.md)</span></span><br><span class="line"><span class="comment">/** Condition for waiting takes */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Condition notEmpty = lock.newCondition();</span><br><span class="line"><span class="comment">/** Condition for waiting puts */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Condition notFull = lock.newCondition();</span><br></pre></td></tr></table></figure>
+
+<p>注意，上述代码将<code>unlock()</code>放在finally块里，这么做是必需的。<strong>显式锁不像内置锁那样会自动释放，使用显式锁一定要在finally块中手动释放</strong>，如果获取锁后由于异常的原因没有释放锁，那么这把锁将永远得不到释放！将unlock()放在finally块中，保证无论发生什么都能够正常释放。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>内置锁能够解决大部分需要同步的场景，只有在需要额外灵活性是才需要考虑显式锁，比如可定时、可中断、多等待队列等特性。</p>
+<p>显式锁虽然灵活，但是需要显式的申请和释放，并且<strong>释放一定要放到finally块中，否则可能会因为异常导致锁永远无法释放！</strong>这是显式锁最明显的缺点。</p>
+<p>综上，当需要同步时请优先考虑更安全的更易用的隐式锁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1、ReetrantLock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现；</span><br><span class="line"></span><br><span class="line">2、synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象发生；而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁；</span><br><span class="line"></span><br><span class="line">3、Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断；</span><br><span class="line"></span><br><span class="line">4、通过Lock可以知道有没有成功获取锁，而synchronized却无法办到。</span><br><span class="line"></span><br><span class="line">5、Lock可以提高多个线程进行读操作的效率。</span><br><span class="line"></span><br><span class="line">在性能上来说，如果竞争资源不激烈，两者的性能是差不多的，而当竞争资源非常激烈时（即有大量线程同时竞争），此时Lock的性能要远远优于synchronized。所以说，在具体使用时要根据适当情况选择。</span><br><span class="line"></span><br><span class="line">6、Lock可以设置等待锁的时间，而synchronized不行</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -430,7 +441,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/15/Thinking in Java/">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2020/02/18/Eng-accumulate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ukyo Chen">
@@ -449,7 +460,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/15/Thinking in Java/" itemprop="url">Tninking in Java</a></h1>
+                <a class="post-title-link" href="/2020/02/18/Eng-accumulate/" itemprop="url">Eng_accumulate</a></h1>
         
 
         <div class="post-meta">
@@ -461,7 +472,1097 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-15T21:37:48+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-18T00:57:35+08:00">
+                2020-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>This momentous decree came as a great beacon light of hope to millions of Negro slaves who had been seared in the flames of withering injustice.</p>
+<p>momentous<br><strong>very</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/important" target="_blank" rel="noopener">important</a> <strong>because of</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/effect" target="_blank" rel="noopener">effects</a> <strong>on</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/future" target="_blank" rel="noopener">future</a> </p>
+<p>decree<br><strong>an</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/official" target="_blank" rel="noopener">official</a> <a href="https://dictionary.cambridge.org/zhs/词典/英语/statement" target="_blank" rel="noopener">statement</a> <strong>that something must</strong> [happen]</p>
+<p>declaration<br><strong>an</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/announcement" target="_blank" rel="noopener">announcement</a><strong>, often one that is written and</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/official" target="_blank" rel="noopener">official</a></p>
+<p>beacon<br><strong>a</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/light" target="_blank" rel="noopener">light</a> <strong>or</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/fire" target="_blank" rel="noopener">fire</a> <strong>on the</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/top" target="_blank" rel="noopener">top</a> <strong>of a</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/hill" target="_blank" rel="noopener">hill</a> <strong>that</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/act" target="_blank" rel="noopener">acts</a> <strong>as a</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/warning" target="_blank" rel="noopener">warning</a> <strong>or</strong> [signal</p>
+<p>magnificent<br><strong>very good,</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/beautiful" target="_blank" rel="noopener">beautiful</a><strong>, or</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/deserving" target="_blank" rel="noopener">deserving</a> <strong>to be</strong> [admired</p>
+<p>indispensable<br><strong>Something or someone that is indispensable is so good or</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/important" target="_blank" rel="noopener">important</a> <strong>that you could not</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/manage" target="_blank" rel="noopener">manage</a> <strong>without it, him, or her</strong></p>
+<p>it offers more advantages to do sth. than … .</p>
+<p>sth. is not always <strong>necessary</strong> or <strong>beneficial</strong>.</p>
+<p>there is no need that – necessarily</p>
+<p>indispensable: an indispensable part of </p>
+<p>yet – but</p>
+<p>the only thing we do together – do something only when we are together</p>
+<p>act as – like</p>
+<p>be supposed to – should </p>
+<p>which means</p>
+<p>a waste of time and letting opportunities slip</p>
+<p>people with so many tasks to deal with – people who have …</p>
+<p>be good for – benefit</p>
+<p>make it more positive – change it in an unexpected and positive way</p>
+<p>no matter what difficulties we encounter – what … we are in<br>encounter  n &amp; v.<br>v1: <strong>to</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/meet" target="_blank" rel="noopener">meet</a> <strong>someone</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/unexpectedly" target="_blank" rel="noopener">unexpectedly</a><br>v2: <strong>to</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/experience" target="_blank" rel="noopener">experience</a> <strong>something,</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/especially" target="_blank" rel="noopener">especially</a> <strong>something</strong> <a href="https://dictionary.cambridge.org/zhs/词典/英语/unpleasant" target="_blank" rel="noopener">unpleasant</a></p>
+<p>is more important than – outweigh</p>
+<p>because – for …</p>
+<p>possible – more likely to<br>e.g. aged people (people older than 50) are more likely to be influenced by TV programs than by phone calls.</p>
+<p>many – most</p>
+<p>on the contrary – will not feel the same about …<br>e.g. Most young people cannot live without phones, but they will not feel the same about television.</p>
+<p>…, or – … either … or …<br>e.g. Young people are either students at school or employees in companies</p>
+<p>important – <strong>indispensable</strong> tool<br>Telephones are also indispensable tools for young people to contact friends and to make engagements</p>
+<p>ask … for help – turn to … for help</p>
+<p>… is important/necessary – play a necessary part<br>Young people’s life relies very much on their phones, yet television never plays a necessary or even important part.</p>
+<p>表否定: hardly, no longer</p>
+<p>既不……也不……: … no  longer …, nor do…<br>Aged people no longer work, nor do they go to schools</p>
+<p>… don’t need to … – there is no need for them to …</p>
+<p>而不是: <strong>rather than</strong>, instead of </p>
+<p>keep up with changes</p>
+<p>一种表达：I can only help you by this way – this method might be the way by which I can help you.<br>e.g. TV programs might be the only source from which they can know what is happening around the globe.</p>
+<p>sth. is sth. – sth. <strong>servers as</strong> sth.</p>
+<p>近义词: outweigh – have more effects than</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2020/02/05/离别是一首诗/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/05/离别是一首诗/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-05T21:53:01+08:00">
+                2020-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我有三支笔，一支写相遇，一支写离别。</p>
+<p>写离别的那支笔尖很粗，笔水很重，一勾一捺都带着长长的尾羽。在泛黄的纸张上翻飞升腾，振动翅膀。我抖一下手腕，一滴墨滴下，束住了燕雀的翅膀，不让思念逃离。</p>
+<p>我在人群中匆匆而过，逆行的人蒙着口罩，鼻尖上架着护目镜，热气透过无法贴紧的缝隙，扶摇而上，氤氲了透明的镜面。匆匆一瞥，只看见两片水雾，在小城深黑的夜里漂浮而过，仿佛一个忙着赶路的幽灵。</p>
+<p>人愈发多了起来，无数的幽灵划过我的肩膀，孩子手里的伞勾住我的裤脚，他硬拉一下，扯掉了我蔽体的布匹，他头也不回，沉默的离去。我弯下腰把衣服下拉，想在寒冬的冷风里遮挡脚踝。老人走过，步履蹒跚，孤孤零零，我猛然回头，巨大的火光投下，我变成了一根盐柱，一个一个匆忙的身影从我的身体越过，我在漆黑的寒夜中缓缓崩塌，散作一地的泥。</p>
+<p>我坐在床沿，枕头上残留着压下的痕迹。我精神恍惚，窗外小区的喇叭里传扬着疫情最新的消息，天空晦暗。这是一场战役，它让活着的人互相撕咬，它让死去的人不得安宁。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2020/02/05/RMQ/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/05/RMQ/" itemprop="url">RMQ</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-05T17:41:04+08:00">
+                2020-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-主流消息中间件"><a href="#1-主流消息中间件" class="headerlink" title="1 主流消息中间件"></a>1 主流消息中间件</h1><h2 id="1-1-ActiveMQ"><a href="#1-1-ActiveMQ" class="headerlink" title="1.1 ActiveMQ"></a>1.1 ActiveMQ</h2><h3 id="1-1-1-综合评价"><a href="#1-1-1-综合评价" class="headerlink" title="1.1.1 综合评价"></a>1.1.1 综合评价</h3><p>老牌，性能一般</p>
+<p>阻塞，消息堆积过多<br>存储方式落后<br>集群架构模式较好<br>API很完善，适合中小型互联网公司</p>
+<h3 id="1-1-2-集群架构模式"><a href="#1-1-2-集群架构模式" class="headerlink" title="1.1.2 集群架构模式"></a>1.1.2 集群架构模式</h3><h4 id="1-1-2-1-Master-Slave模式"><a href="#1-1-2-1-Master-Slave模式" class="headerlink" title="1.1.2.1 Master-Slave模式"></a>1.1.2.1 Master-Slave模式</h4><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580895975777.png" alt="1580895975777"></p>
+<p>Zookeeper协调，高可用切换<br>主节点提供服务，从节点备份</p>
+<h4 id="1-1-2-2-Network模式"><a href="#1-1-2-2-Network模式" class="headerlink" title="1.1.2.2 Network模式"></a>1.1.2.2 Network模式</h4><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580896072943.png" alt="1580896072943"></p>
+<p>Network网关</p>
+<h3 id="1-1-3-MQ衡量指标"><a href="#1-1-3-MQ衡量指标" class="headerlink" title="1.1.3 MQ衡量指标"></a>1.1.3 MQ衡量指标</h3><p>服务性能，数据存储，集群架构</p>
+<h2 id="1-2-KAFKA"><a href="#1-2-KAFKA" class="headerlink" title="1.2 KAFKA"></a>1.2 KAFKA</h2><p>关注于性能，对数据可靠性要求不高（不适合消息的可靠性投递）。<br>适合日志收集（性能很好）。</p>
+<p>Kafka集群模式</p>
+<p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581062195597.png" alt="1581062195597"></p>
+<p>内存级别有三份数据</p>
+<h2 id="1-3-RocketMQ"><a href="#1-3-RocketMQ" class="headerlink" title="1.3 RocketMQ"></a>1.3 RocketMQ</h2><p>纯Java开发，具有高吞吐量、高可用性、适合大规模分布式系统应用<br>阿里内部广泛应用：交易、充值、流计算、消息推送、日志流式处理、binglog分发等场景<br>放弃了zookeeper<br> 集群结构模式很多<br>zero copy</p>
+<p>高性能，可靠性，支持分布式事务<br>商业版收费，很多功能不对外提供</p>
+<p>集群拓扑<br><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581062434627.png" alt="1581062434627"></p>
+<p>需要频繁读写，zookeeper性能不够，所以换成了name server集群</p>
+<p>分布式事务，主从节点切换：没有这两个功能，需要收费</p>
+<h2 id="1-4-RabbitMQ"><a href="#1-4-RabbitMQ" class="headerlink" title="1.4 RabbitMQ"></a>1.4 RabbitMQ</h2><p>Erlang语言开发<br>基于AMQP协议实现，AMQP的主要特征是面向消息、队列、路由（包括点对点和发布/订阅）、可靠性、安全。更多用在企业系统内，对数据一致性、稳定性和可靠性要求很高的场景，对性能和吞吐量的要求还在其次。</p>
+<p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581064706887.png" alt="1581064706887"></p>
+<h1 id="2-RabbitMQ"><a href="#2-RabbitMQ" class="headerlink" title="2 RabbitMQ"></a>2 RabbitMQ</h1><h2 id="2-1-特性"><a href="#2-1-特性" class="headerlink" title="2.1 特性"></a>2.1 特性</h2><p>与SpringAMQP完美的整合，API丰富<br>集群模式丰富，表达式配置，HA模式，镜像队列模型<br>保证数据不丢失的前提做到高可靠性、可用性</p>
+<h2 id="2-2-高性能的原因"><a href="#2-2-高性能的原因" class="headerlink" title="2.2 高性能的原因"></a>2.2 高性能的原因</h2><p>采用Erlang语言：<br>Erlang语言最初用于交换机领域的架构模式，这样使得RabbitMQ在Broker之间进行数据交互（交换、同步）的性能非常优秀<br>Erlang有着和原生Socket一样的延迟（关注点：延迟、吞吐量、性能）</p>
+<h2 id="2-3-AMQP高级消息队列协议"><a href="#2-3-AMQP高级消息队列协议" class="headerlink" title="2.3 AMQP高级消息队列协议"></a>2.3 AMQP高级消息队列协议</h2><p>AMQP协议模型<br><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581065809587.png" alt="1581065809587"></p>
+<p>Server: 节点<br>Publisher: 和server建立连接，指定virtual host，将消息发送到Exchange，接下来就不用再操作（RabbitMQ解耦）。</p>
+<p>Server: 又称Broker，接受客户端连接，实现AMQP实体业务。</p>
+<p>Connection: 连接，应用程序与Broker的网络连接。</p>
+<p>Channel: 网络信道，几乎所有的操作都在channel中进行，Channel是进行消息读写的通道。客户端可以建立多个Channel，每个Channel代表一个会话任务。<br>数据读写，删除队列，删除Exchange<br>类似于数据库中的session，RMQ需要创建一个Channel来进行操作</p>
+<p>Message: 消息，服务器和应用程序之间传送的数据，由</p>
+<p>Properties和Body组成。Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性；Body则是消息体内容。</p>
+<p>Virtual host: 虚拟地址，用于进行逻辑隔离，最上层的消息路由。一个Virtual Host里可以有多个Exchange和Queue，同一个Virtual Host里面不能有相同名称的Exchange和Queue</p>
+<p>Exchange: 交换机，接收消息，根据路由键转发消息到绑定的队列。</p>
+<p>Binding: Exchange和Queue之间的虚拟连接，binding中可以包含routing key。</p>
+<p>Routing key: 一个路由规则，虚拟机可用它来确定如何路由一个特定消息。</p>
+<p>Queue: 也称为Message Queue，保存消息并将消息转发给消费者。</p>
+<h2 id="2-4-RabbitMQ的整体架构"><a href="#2-4-RabbitMQ的整体架构" class="headerlink" title="2.4 RabbitMQ的整体架构"></a>2.4 RabbitMQ的整体架构</h2><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175026766.png" alt="1581175026766"></p>
+<p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175045067.png" alt="1581175045067"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2020/01/12/微服务学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/12/微服务学习笔记/" itemprop="url">微服务学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-12T20:05:02+08:00">
+                2020-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>shh</p>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><p>@transactional的使用</p>
+<h2 id="分布式事务解决方案"><a href="#分布式事务解决方案" class="headerlink" title="分布式事务解决方案"></a>分布式事务解决方案</h2><p>概念：</p>
+<p>本地事务(Local Transaction)：基于单个服务单一数据库访问的事务。</p>
+<p>分布式事务：分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。</p>
+<p>CAP theory:</p>
+<p>BASE theory:</p>
+<p>常见解决方案：</p>
+<p>二阶段协议，三阶段协议，MQ 事务消息，补偿，Saga，TCC等。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/27/系统开发流程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/27/系统开发流程/" itemprop="url">系统开发流程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-27T16:18:54+08:00">
+                2019-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>aaaa</p>
+<p>数据库设计</p>
+<p>非关系型数据库</p>
+<p>关系型数据库</p>
+<p>业务层</p>
+<p>环境配置</p>
+<p>微服务框架</p>
+<p>Spring Cloud</p>
+<h1 id="spring-cloud搭建微服务框架"><a href="#spring-cloud搭建微服务框架" class="headerlink" title="spring cloud搭建微服务框架"></a>spring cloud搭建微服务框架</h1><p>分布式系统的配置管理、服务发现、断路器、智能路由、微代理、控制总线等开发工具包</p>
+<p>注册中心</p>
+<p>网关</p>
+<p>链路跟踪</p>
+<p>服务：合作</p>
+<p>配置文件</p>
+<p>父：</p>
+<h2 id="合作中心"><a href="#合作中心" class="headerlink" title="合作中心"></a>合作中心</h2><p>业务：插入数据库，发送partner</p>
+<p>传参</p>
+<p>sponsor:  userId, cooperateId, observerId, startTime</p>
+<p>zuul</p>
+<p>problems</p>
+<p>extends JpaRepository&lt;&gt;() {}</p>
+<p>JpaR的泛型参数</p>
+<p>接口的泛型参数</p>
+<p>jpa page查询，pagerequest</p>
+<p>Knowledge points:</p>
+<p>BeanUtils.copyProperties</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/27/network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/27/network/" itemprop="url">network</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-27T10:53:09+08:00">
+                2019-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>jdfjdf</p>
+<h1 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h1><h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p><img src="https://images2015.cnblogs.com/blog/305504/201611/305504-20161112124853014-1532060796.png" alt="img"></p>
+<p>For example:</p>
+<p>　　我是一个用户，我访问不了某网站，但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先连上代理服务器,告诉他我需要那个无法访问网站的内容，代理服务器去取回来,然后返回给我。从网站的角度，只在代理服务器来取内容的时候有一次记录，有时候并不知道是用户的请求，也隐藏了用户的资料，这取决于代理告不告诉网站。</p>
+<p><strong>客户端必须设置正向代理服务器，前提是要知道正向代理服务器的IP地址，还有代理程序的端口。</strong></p>
+<p>总结来说：正向代理 是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。</p>
+<p><strong>正向代理的用途：</strong></p>
+<p>　　（1）访问原来无法访问的资源，如google</p>
+<p>​        （2） 可以做缓存，加速访问资源</p>
+<p>　　（3）对客户端访问授权，上网进行认证</p>
+<p>　　（4）代理可以记录用户访问记录（上网行为管理），对外隐藏用户信息</p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p><img src="https://images2015.cnblogs.com/blog/305504/201611/305504-20161112124341280-1435223816.png" alt="img"></p>
+<p><img src="https://images2015.cnblogs.com/blog/305504/201611/305504-20161112124423530-566240666.png" alt="img"></p>
+<p>![img](<a href="https://images2015.cnblogs.com/blog/305504/201611/305504-20161112125907030-1432469707.png" target="_blank" rel="noopener">https://images2015.cnblogs.com/blog/305504/201611/305504-20161112125907030-1432469707.png</a></p>
+<p><img src="https://images2015.cnblogs.com/blog/305504/201611/305504-20161112130135639-1005446770.png" alt="img"></p>
+<h2 id="nginx配置教程"><a href="#nginx配置教程" class="headerlink" title="nginx配置教程"></a>nginx配置教程</h2><h3 id="1-proxy-pass"><a href="#1-proxy-pass" class="headerlink" title="1 proxy_pass"></a>1 proxy_pass</h3><h4 id="1-作用域"><a href="#1-作用域" class="headerlink" title="1 作用域"></a>1 作用域</h4><p>location</p>
+<h4 id="2-配置规则"><a href="#2-配置规则" class="headerlink" title="2 配置规则"></a>2 配置规则</h4><h5 id="1-url-后带-（则不会加上location中的匹配路径）"><a href="#1-url-后带-（则不会加上location中的匹配路径）" class="headerlink" title="1 url 后带 / （则不会加上location中的匹配路径）"></a>1 url 后带 / （则不会加上location中的匹配路径）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">	root /data/www/html;</span><br><span class="line">	proxy_pass http://test.yemao.com/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>访问 <a href="http://my.yemao.com/proxy/index.html，其实是访问到了" target="_blank" rel="noopener">http://my.yemao.com/proxy/index.html，其实是访问到了</a> <a href="http://test.yemao.com/index.html" target="_blank" rel="noopener">http://test.yemao.com/index.html</a></p>
+<h5 id="2-url中不带-（则会加上location中的匹配路径）"><a href="#2-url中不带-（则会加上location中的匹配路径）" class="headerlink" title="2 url中不带 / （则会加上location中的匹配路径）"></a>2 url中不带 / （则会加上location中的匹配路径）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /proxy/ &#123;</span><br><span class="line">	root /data/www/html;</span><br><span class="line">	proxy_pass http://test.yemao.com;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们访问 <a href="http://my.yemao.com/proxy/index.html" target="_blank" rel="noopener">http://my.yemao.com/proxy/index.html</a>, 其实是访问到了 <a href="http://test.yemao.com/proxy/index.html" target="_blank" rel="noopener">http://test.yemao.com/proxy/index.html</a>, 这里将 location 中匹配的 proxy 也自动加到了代理转发的地址后面</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/25/redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/25/redis/" itemprop="url">redis</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-25T10:13:32+08:00">
+                2019-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Data Type</p>
+<p>String, hash, list, set zset(sorted set)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/23/orderSystem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/23/orderSystem/" itemprop="url">orderSystem</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-23T20:37:44+08:00">
+                2019-12-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Wechat-part"><a href="#Wechat-part" class="headerlink" title="Wechat part:"></a>Wechat part:</h2><h3 id="Method-1-Manual-way"><a href="#Method-1-Manual-way" class="headerlink" title="Method 1: Manual way"></a>Method 1: Manual way</h3><p>Read the official doc</p>
+<p>Method 2: Api</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/12/15/Practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/15/Practice/" itemprop="url">Java Concurrency in Practice</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-15T21:48:00+08:00">
                 2019-12-15
               </time>
             
@@ -523,302 +1624,11 @@
       
         
           
-            <h1 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h1><p>Concepts:</p>
-<p>包装器类：<br>char c = ‘x’;<br>Character ch = new Character(c);</p>
-<p>or </p>
-<p>Character ch = new Character(‘x’);</p>
-<p>or (Java SE5)</p>
-<p>Character ch = ‘x’;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/10/21/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ukyo Chen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ukyo Chen's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/21/test/" itemprop="url">test</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-21T17:28:53+08:00">
-                2019-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Papers:</p>
-<h2 id="1-Federated-Machine-Learning-Concepts-and-Applications"><a href="#1-Federated-Machine-Learning-Concepts-and-Applications" class="headerlink" title="1. Federated Machine Learning: Concepts and Applications"></a>1. Federated Machine Learning: Concepts and Applications</h2><p>limits:<br>data exists in the form of isolated islands<br>industry competition, privacy security and complicated administrative procedures</p>
-<h3 id="Definition-of-Federated-Learning"><a href="#Definition-of-Federated-Learning" class="headerlink" title="Definition of Federated Learning"></a>Definition of Federated Learning</h3><p>| V(FED) - V(SUM) | &lt;  &#948;: &#948;-accuracy loss</p>
-<h3 id="Privacy-of-Federated-Learning"><a href="#Privacy-of-Federated-Learning" class="headerlink" title="Privacy of Federated Learning"></a>Privacy of Federated Learning</h3><h5 id="SMC"><a href="#SMC" class="headerlink" title="SMC"></a>SMC</h5><p>SMC: zero knowledge, efficient, lower security requirement<br>e.g. Sharemind<br>MPC: no revealing sensitive data<br>3PC: an honest majority and consider security in both semi-honest and malicious assumptions. Requires participants’ data to be secretly-shared among non-colluding servers</p>
-<h5 id="Differential-Privacy"><a href="#Differential-Privacy" class="headerlink" title="Differential Privacy"></a>Differential Privacy</h5><p>differential privacy, k-anonymity,and diversification involve in adding noise to the data,or using generalization methods to obscure certain sensitive attributes until the third party cannot distinguish the individual<br>e.g. [23] add protection to client-side data by hiding client’s contributions during training.</p>
-<h5 id="Homomorphic-Encryption"><a href="#Homomorphic-Encryption" class="headerlink" title="Homomorphic Encryption"></a>Homomorphic Encryption</h5><p>the data and the model itself are not transmitted<br>so, little possibility of leakage at the raw data level<br>e.g. Additively Homomorphic Encryption<br>polynomial approximations need to be made to evaluate non-linear functions</p>
-<h4 id="Indirect-information-leakage"><a href="#Indirect-information-leakage" class="headerlink" title="Indirect information leakage"></a>Indirect information leakage</h4><p>backdoors, loopholes</p>
-<h5 id="Blockchain"><a href="#Blockchain" class="headerlink" title="Blockchain"></a>Blockchain</h5><p>BlockFL(block-chained federated learning) architecture</p>
-<h3 id="A-Categorization-of-Federated-Learning"><a href="#A-Categorization-of-Federated-Learning" class="headerlink" title="A Categorization of Federated Learning"></a>A Categorization of Federated Learning</h3><p>Federated Learning for Mobile Keyboard Prediction</p>
-<p><strong>old method</strong>: </p>
-<p>FST<br>searching for the highest-order n-gram state that matches the preceding text<br>Primary language  model for the English language: a Katz smoothed Bayesian interpolated 5-gram LM containing 1.25 million n-grams, including 164000 unigrams.</p>
-<p><strong>demand</strong>: </p>
-<p>models should be small and inference-time latency should be low.<br>language models are usually limited to tens of megabytes in size with vocabularies of hundreds of thousands of words because of client device batteries</p>
-<p><strong>This paper:</strong> </p>
-<p>RNN<br>performs well on language modeling tasks<br>utilize an arbitrary and dynamically-sized context window</p>
-<p>LSTM<br>resolving exploding and vanishing gradients in the back-propagation through time algorithm</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2019/10/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ukyo Chen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ukyo Chen's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/05/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-05T14:59:08+08:00">
-                2019-10-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<p>修改note</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h1 id="第二章-线程安全性"><a href="#第二章-线程安全性" class="headerlink" title="第二章 线程安全性"></a>第二章 线程安全性</h1><h2 id="2-2-原子性"><a href="#2-2-原子性" class="headerlink" title="2.2 原子性"></a>2.2 原子性</h2><h3 id="2-2-3-复合操作"><a href="#2-2-3-复合操作" class="headerlink" title="2.2.3 复合操作"></a>2.2.3 复合操作</h3><p>线程安全对象<br>ref: <a href="https://blog.csdn.net/xiaoyi52/article/details/68579593" target="_blank" rel="noopener">https://blog.csdn.net/xiaoyi52/article/details/68579593</a></p>
+<p>基本的线程安全对象有Vector，HashTable，还有经过Collections.synchronizedCollection()方法包装的集合对象。Java并发包中提供的安全类型有ConcurentHashMap，ConcurentLinkedQueue，CopyOnWriteArrayList，还有BlockingQueue的实现类型。另外还有Java原子包中提供的AtomicInteger，AtomicLong等原子类型。</p>
+<p>经过Collections.synchronizedMap()包装的HashMap是一个线程安全对象，如Map m = Collections. synchronizedMap(new HashMap())。Collections.synchronizedMap()会生成一个名为SynchronizedMap的Map，它使用委托将自己所有Map相关的功能交给传入的HashMap实现，而自己主要负责保证线程安全。实际上就是将HashMap相关的操作方法加上了synchronized关键字以保证线程安全，在并发级别不高时可以使用。</p>
+<p>ConcurentHashMap</p>
+<p>ConcurentHashMap是Java并发包提供的并发HashMap，它专门为并发进行了性能优化，更加适合多线程的场合。其内部实现原理是：它实现了一个Segement数组，对于每一个数组元素来讲，都相当于一个HashTable。在同一个segement上操作时，会加锁进行互斥同步。而在不同的segement上操作时则是无锁的。它引入了“多段锁”的概念，将锁的粒度从整个对象上细化到了具体每个segement数组的元素上，以此达到提升并发性能的目的。</p>
 
           
         
@@ -858,7 +1668,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -904,7 +1714,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -926,7 +1736,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

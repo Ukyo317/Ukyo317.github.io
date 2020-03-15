@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JavaHashmapreference:https://blog.csdn.net/u012512634/article/details/72735183https://blog.csdn.net/wenyiqingnianiii/article/details/52204136 StringBuilder &amp;amp;&amp;amp; StringBufferappend(String s), rev">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ukyo Chen&#39;s blogs">
+<meta property="og:url" content="https://ukyo317.github.io/2020/03/15/面经/index.html">
+<meta property="og:site_name" content="Ukyo Chen&#39;s blogs">
+<meta property="og:description" content="JavaHashmapreference:https://blog.csdn.net/u012512634/article/details/72735183https://blog.csdn.net/wenyiqingnianiii/article/details/52204136 StringBuilder &amp;amp;&amp;amp; StringBufferappend(String s), rev">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img-blog.csdn.net/20170420081600446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaHNkMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-9ea11047f720b3b74c5846256c1883da_1440w.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-065d69d1ec2f516e6d24ed3514ebd59b_1440w.png">
+<meta property="og:updated_time" content="2020-03-15T14:24:51.763Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ukyo Chen&#39;s blogs">
+<meta name="twitter:description" content="JavaHashmapreference:https://blog.csdn.net/u012512634/article/details/72735183https://blog.csdn.net/wenyiqingnianiii/article/details/52204136 StringBuilder &amp;amp;&amp;amp; StringBufferappend(String s), rev">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20170420081600446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaHNkMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ukyo317.github.io/2020/03/15/面经/">
+
+
+
+
+
+  <title> | Ukyo Chen's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ukyo Chen's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            Sitemap
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ukyo317.github.io/2020/03/15/面经/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ukyo Chen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ukyo Chen's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-15T23:52:37+08:00">
+                2020-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><h2 id="Hashmap"><a href="#Hashmap" class="headerlink" title="Hashmap"></a>Hashmap</h2><p>reference:<br><a href="https://blog.csdn.net/u012512634/article/details/72735183" target="_blank" rel="noopener">https://blog.csdn.net/u012512634/article/details/72735183</a><br><a href="https://blog.csdn.net/wenyiqingnianiii/article/details/52204136" target="_blank" rel="noopener">https://blog.csdn.net/wenyiqingnianiii/article/details/52204136</a></p>
+<h2 id="StringBuilder-amp-amp-StringBuffer"><a href="#StringBuilder-amp-amp-StringBuffer" class="headerlink" title="StringBuilder &amp;&amp; StringBuffer"></a>StringBuilder &amp;&amp; StringBuffer</h2><p>append(String s), reverse, delete(int start, int end), insert, replace(int start, int end, String str)<br>类似String: capacity, charAt(int index), indexOf(string str), length, substring(int start / int start, int end), toString</p>
+<p>StringBuffer 线程安全</p>
+<h2 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h2><h1 id="线程-进程"><a href="#线程-进程" class="headerlink" title="线程/进程"></a>线程/进程</h1><h2 id="线程和进程区别"><a href="#线程和进程区别" class="headerlink" title="线程和进程区别"></a>线程和进程区别</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><p>进程:具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是<strong>系统进行资源分配和调度</strong>的一个独立单位.</p>
+<p>线程:进程的一个实体, 是<strong>CPU调度和分派的基本单位</strong>,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(<strong>如程序计数器,一组寄存器和栈</strong>),但是它<u>可与同属一个进程的其他的线程共享进程所拥有的全部资源</u>.</p>
+<h3 id="2-关系"><a href="#2-关系" class="headerlink" title="2. 关系"></a>2. 关系</h3><p>一个线程可以创建和撤销另一个线程;同一个进程中的多个线程之间可以并发执行.</p>
+<p>相对进程而言，线程是一个更加接近于执行体的概念，它可以与同进程中的其他线程共享数据，但拥有自己的<strong>栈空间</strong>，拥有独立的<strong>执行序列</strong>。</p>
+<h3 id="3-区别"><a href="#3-区别" class="headerlink" title="3. 区别"></a>3. 区别</h3><p>进程和线程的主要差别在于它们是<strong>不同的操作系统资源管理方式</strong>。</p>
+<p>进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。</p>
+<p>线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。<strong>但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。</strong></p>
+<p>1) 简而言之,一个程序至少有一个进程,一个进程至少有一个线程.</p>
+<p>2) 线程的划分尺度小于进程，使得多线程程序的并发性高。</p>
+<p>3) 另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。</p>
+<p>4) 线程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。<strong>但是线程不能够独立执行，</strong>必须依存在应用程序中，由应用程序提供多个线程执行控制。</p>
+<p>5) 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。<strong>这就是进程和线程的重要区别。</strong></p>
+<p><strong>4.优缺点</strong></p>
+<p>线程和进程在使用上各有优缺点：</p>
+<p>线程执行开销小，但不利于资源的管理和保护；</p>
+<p>而进程正相反。</p>
+<p>同时，线程适合于在SMP机器上运行，而进程则可以跨机器迁移。</p>
+<h2 id="Java进程间通信"><a href="#Java进程间通信" class="headerlink" title="Java进程间通信"></a>Java进程间通信</h2><h3 id="1-进程间通信目的及方式"><a href="#1-进程间通信目的及方式" class="headerlink" title="1. 进程间通信目的及方式"></a>1. 进程间通信目的及方式</h3><p>目的：</p>
+<p>1、数据传输<br>一个进程需要将它的数据发送给另一个进程。<br>2、资源共享<br>多个进程之间共享同样的资源。<br>3、通知事件<br>一个进程需要向另一个或一组进程发送消息，通知它（它们）发生了某种事件<br>4、进程控制<br>有些进程希望完全控制另一个进程的执行（如 Debug 进程），此时控制进程希望能够拦截另一个进程的所有陷入和异常，并能够及时知道它的状态改变。</p>
+<p>方式：</p>
+<ol>
+<li>管道( pipe )：<br>管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指<strong>父子进程</strong>关系。</li>
+<li>有名管道 (namedpipe) ：<br>有名管道也是半双工的通信方式，但是它允许<strong>无亲缘关系</strong>进程间的通信。</li>
+<li>信号量(semophore ) ：<br>信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种<strong>锁机制</strong>，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</li>
+<li>消息队列( messagequeue ) ：<br>消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了<strong>信号传递信息少</strong>、<strong>管道只能承载无格式字节流</strong>以及<strong>缓冲区大小受限</strong>等缺点。</li>
+<li>信号 (sinal ) ：<br>信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。</li>
+<li>共享内存(shared memory ) ：<br>共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号量，配合使用，来实现进程间的同步和通信。</li>
+<li>套接字(socket ) ：<br>套接口也是一种进程间通信机制，与其他通信机制不同的是，它<strong>可用于不同设备及其间的进程通信</strong>。</li>
+</ol>
+<h3 id="2-线程间通信"><a href="#2-线程间通信" class="headerlink" title="2. 线程间通信"></a>2. 线程间通信</h3><ol>
+<li><p>锁机制：包括互斥锁、条件变量、读写锁<br>互斥锁提供了以排他方式防止数据结构被并发修改的方法。<br>读写锁允许多个线程同时读共享数据，而对写操作是互斥的。<br>条件变量可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。</p>
+</li>
+<li><p>信号量机制(Semaphore)：包括无名线程信号量和命名线程信号量</p>
+</li>
+<li><p>信号机制(Signal)：类似进程间的信号处理</p>
+</li>
+</ol>
+<p>   <u>线程间的通信目的主要是用于线程同步，所以线程没有像进程通信中的用于数据交换的通信机制。</u></p>
+<p> 强引用和弱引用 </p>
+<h2 id="如何实现LRU"><a href="#如何实现LRU" class="headerlink" title="如何实现LRU"></a>如何实现LRU</h2><p>reference:<br><a href="https://zhuanlan.zhihu.com/p/34133067" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/34133067</a></p>
+<h2 id="乐观锁-悲观锁"><a href="#乐观锁-悲观锁" class="headerlink" title="乐观锁 悲观锁"></a>乐观锁 悲观锁</h2><h3 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h3><p>总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁（<strong>共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程</strong>）。</p>
+<p>传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。Java中<code>synchronized</code>和<code>ReentrantLock</code>等独占锁就是悲观锁思想的实现。</p>
+<h3 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h3><p>总是假设最好的情况，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号机制和CAS算法实现。</p>
+<p><strong>乐观锁适用于多读的应用类型，这样可以提高吞吐量</strong>，像数据库提供的类似于<strong>write_condition机制</strong>，其实都是提供的乐观锁。在Java中<code>java.util.concurrent.atomic</code>包下面的原子变量类就是使用了乐观锁的一种实现方式<strong>CAS</strong>实现的。</p>
+<h4 id="乐观锁常见的两种实现方式"><a href="#乐观锁常见的两种实现方式" class="headerlink" title="乐观锁常见的两种实现方式"></a>乐观锁常见的两种实现方式</h4><p>后面的技术问题涉及广度很深包括但不限于TCP IP, 数据库，socket编程，异步编程，动态规划与递归，多线程编程， HTTP等。</p>
+<p>hashArray和list有什么区别？</p>
+<p>内存单元的作用是什么</p>
+<p>刚开始就让敲代码，实现快速排序算法、二叉树的中序遍历（非递归）、实现线程安全的火车票销售，之后问了线程池的知识，ThreadPoolExecuter还问了Object类里的方法，接着问了计算机网络方面的，之后还问了数据库的ACID、左连接和右连接，我一般用的是Oracle，就问了Oracle里面一些函数的用法，但是没有让写SQL。最后就是问我还有什么问题，就是这些了</p>
+<p>乐观锁，悲观锁</p>
+<h2 id="输入url到返回页面的全过程"><a href="#输入url到返回页面的全过程" class="headerlink" title="输入url到返回页面的全过程"></a>输入url到返回页面的全过程</h2><h3 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h3><p><a href="https://www.jianshu.com/p/184ebd448c7f?mType=Group" target="_blank" rel="noopener">https://www.jianshu.com/p/184ebd448c7f?mType=Group</a></p>
+<ul>
+<li>1.根据域名，进行DNS域名解析；</li>
+<li>2.拿到解析的IP地址，建立TCP连接；</li>
+<li>3.向IP地址，发送HTTP请求；</li>
+<li>4.服务器处理请求；</li>
+<li>5.返回响应结果；</li>
+<li>6.关闭TCP连接；</li>
+<li>7.浏览器解析HTML；</li>
+<li>8.浏览器布局渲染；</li>
+</ul>
+<p><img src="https://img-blog.csdn.net/20170420081600446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaHNkMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°"></p>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>reference:<br><a href="https://zhuanlan.zhihu.com/p/79350395" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/79350395</a></p>
+<p>DNS 的全称是 Domain Name System 或者 Domain Name Service，它主要的作用就是将人们所熟悉的网址 (域名) “翻译”成电脑可以理解的 IP 地址，这个过程叫做 DNS 域名解析。</p>
+<p>大致就是:浏览器输入地址，然后浏览器这个进程去调操作系统某个库里的gethostbyname函数(例如，Linux GNU glibc标准库的gethostbyname函数)，然后这个函数通过网卡给DNS服务器发UDP请求，接收结果，然后将结果给返回给浏览器。</p>
+<p>这张图其实已经讲明白大致的流程，但是细节上可能有些差异。 例如</p>
+<ul>
+<li>(1)我们在用chrome浏览器的时候，其实会先去浏览器的dns缓存里头查询，dns缓存中没有，再去调用gethostbyname函数</li>
+<li>(2)gethostbyname函数在试图进行DNS解析之前首先检查域名是否在本地 Hosts 里，如果没找到再去DNS服务器上查</li>
+</ul>
+<p>DNS的规范规定了2种类型的DNS服务器，一个叫主DNS服务器，一个叫辅助DNS服务器。在一个区中主DNS服务器从自己本机的数据文件中读取该区的DNS数据信息，而辅助DNS服务器则从区的主DNS服务器中读取该区的DNS数据信息。<br>当一个辅助DNS服务器启动时，它需要与主DNS服务器通信，并加载数据信息，这就叫做区传送（zone transfer）。 这种情况下，使用TCP协议。</p>
+<p><strong>针对第一问，<em>为什么域名解析用UDP协议?</em></strong></p>
+<p>因为UDP快啊！UDP的DNS协议只要一个请求、一个应答就好了。而使用基于TCP的DNS协议要三次握手、发送数据以及应答、四次挥手。但是UDP协议传输内容不能超过512字节。不过客户端向DNS服务器查询域名，一般返回的内容都不超过512字节，用UDP传输即可。</p>
+<p><strong>针对第二问，<em>为什么区域传送用TCP协议？</em></strong></p>
+<p>因为TCP协议可靠性好啊！因为TCP协议传输的内容大啊，你用最大只能传512字节的UDP协议？万一同步的数据大于512字节，你怎么办？</p>
+<p><img src="https://pic3.zhimg.com/80/v2-9ea11047f720b3b74c5846256c1883da_1440w.jpg" alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-065d69d1ec2f516e6d24ed3514ebd59b_1440w.png" alt="img"></p>
+<p>未完</p>
+<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><h2 id="长连接-短连接"><a href="#长连接-短连接" class="headerlink" title="长连接 短连接"></a>长连接 短连接</h2><h3 id="1-HTTP协议与TCP-IP协议的关系"><a href="#1-HTTP协议与TCP-IP协议的关系" class="headerlink" title="1. HTTP协议与TCP/IP协议的关系"></a><strong>1. HTTP协议与TCP/IP协议的关系</strong></h3><p>　　HTTP的长连接和短连接本质上是TCP长连接和短连接。HTTP属于应用层协议，在传输层使用TCP协议，在网络层使用IP协议。<br>IP协议主要解决网络路由和寻址问题。<br>TCP协议主要解决如何在IP层之上可靠的传递数据包，使在网络上的另一端收到发端发出的所有包，并且顺序与发出顺序一致。TCP有可靠，面向连接的特点。</p>
+<h3 id="2-如何理解HTTP协议是无状态的"><a href="#2-如何理解HTTP协议是无状态的" class="headerlink" title="2. 如何理解HTTP协议是无状态的"></a><strong>2. 如何理解HTTP协议是无状态的</strong></h3><p>　　HTTP协议是无状态的，指的是协议对于事务处理没有记忆能力，服务器不知道客户端是什么状态。也就是说，打开一个服务器上的网页和你之前打开这个服务器上的网页之间没有任何联系。HTTP是一个无状态的面向连接的协议，无状态不代表HTTP不能保持TCP连接，更不能代表HTTP使用的是UDP协议（无连接）。</p>
+<h3 id="3-什么是长连接、短连接？"><a href="#3-什么是长连接、短连接？" class="headerlink" title="3. 什么是长连接、短连接？"></a><strong>3. 什么是长连接、短连接？</strong></h3><p>　　<strong>在HTTP/1.0中，默认使用的是短连接</strong>。也就是说，浏览器和服务器每进行一次HTTP操作，就建立一次连接，但任务结束就中断连接。如果客户端浏览器访问的某个HTML或其他类型的 Web页中包含有其他的Web资源，如JavaScript文件、图像文件、CSS文件等；当浏览器每遇到这样一个Web资源，就会建立一个HTTP会话。</p>
+<p>但从 <strong>HTTP/1.1起，默认使用长连接</strong>，用以保持连接特性。使用长连接的HTTP协议，会在响应头有加入这行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`Connection:keep-alive`</span><br></pre></td></tr></table></figure>
+
+<p>　　在使用长连接的情况下，当一个网页打开完成后，客户端和服务器之间用于传输HTTP数据的 TCP连接不会关闭，如果客户端再次访问这个服务器上的网页，会继续使用这一条已经建立的连接。Keep-Alive不会永久保持连接，它有一个保持时间，可以在不同的服务器软件（如Apache）中设定这个时间。实现长连接要客户端和服务端都支持长连接。</p>
+<p>HTTP协议的长连接和短连接，实质上是TCP协议的长连接和短连接。</p>
+<h2 id="一个-TCP-连接上面能发多少个-HTTP-请求"><a href="#一个-TCP-连接上面能发多少个-HTTP-请求" class="headerlink" title="一个 TCP 连接上面能发多少个 HTTP 请求"></a>一个 TCP 连接上面能发多少个 HTTP 请求</h2><p>reference:<br><a href="https://zhuanlan.zhihu.com/p/61423830" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/61423830</a></p>
+<p>在 HTTP/1.0 中，一个服务器在发送完一个 HTTP 响应后，会断开 TCP 连接。</p>
+<p>HTTP/1.1 存在一个问题，单个 TCP 连接在同一时刻只能处理一个请求，意思是说：两个请求的生命周期不能重叠，任意两个 HTTP 请求从开始到结束的时间在同一个 TCP 连接里不能重叠。</p>
+<p>在 HTTP/1.1 时代，浏览器是如何提高页面加载效率的呢？主要有下面两点：</p>
+<ol>
+<li>维持和服务器已经建立的 TCP 连接，在同一连接上顺序处理多个请求。</li>
+<li>和服务器建立多个 TCP 连接。</li>
+</ol>
+<p>HTTP2 提供了 Multiplexing 多路传输特性，可以<strong>在一个 TCP 连接中</strong>同时完成多个 HTTP 请求。</p>
+<h2 id="TCP-的三次握手和4次挥手过程"><a href="#TCP-的三次握手和4次挥手过程" class="headerlink" title="TCP 的三次握手和4次挥手过程"></a><strong>TCP 的三次握手和4次挥手过程</strong></h2><h2 id="SSL-TLS协议运行机制的概述"><a href="#SSL-TLS协议运行机制的概述" class="headerlink" title="SSL/TLS协议运行机制的概述"></a>SSL/TLS协议运行机制的概述</h2><p>Reference:<br><a href="https://www.ruanyifeng.com/blog/2014/02/ssl_tls.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2014/02/ssl_tls.html</a></p>
+<p>一面结束问了线程进程，服务器接受访问上限，操作系统如何分配内存，数据库隔离有哪些。一道数学智力题，一个dp。</p>
+<h1 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h1><h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><p>对称密钥加密，又称私钥加密，即<strong>信息的发送方和接收方用一个密钥去加密和解密数据</strong>。它的最大优势是<u>加/解密速度快，适合于对大数据量进行加密，但密钥管理困难</u>。</p>
+<p>包含算法：</p>
+<p>DES、3DES、IDEA、FEAL、BLOWFISH等</p>
+<p>二分法，为什么</p>
+<h1 id="TPS-and-QPS"><a href="#TPS-and-QPS" class="headerlink" title="TPS and QPS"></a>TPS and QPS</h1><p>TPS:</p>
+<p>Transactions Per Second（每秒传输的事物处理个数），即<strong>服务器每秒处理的事务数（事务数/秒）</strong>。TPS包括一条消息入和一条消息出，加上一次用户数据库访问。（业务TPS = CAPS × 每个呼叫平均TPS）</p>
+<p>TPS是软件测试结果的测量单位。一个事务是指一个客户机向服务器发送请求然后服务器做出反应的过程。客户机在发送请求时开始计时，收到服务器响应后结束计时，以此来计算使用的时间和完成的事务个数。</p>
+<p>一般的，评价系统性能均以每秒钟完成的技术交易的数量来衡量。系统整体处理能力取决于处理能力最低模块的TPS值。</p>
+<p>QPS：</p>
+<p>每秒查询率QPS是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准，在因特网上，作为域名系统服务器的机器的性能经常用每秒查询率来衡量。</p>
+<p>对应fetches/sec，即每秒的响应请求数，也即是最大吞吐能力。</p>
+<h1 id="面经"><a href="#面经" class="headerlink" title="面经"></a>面经</h1><p>设计模式</p>
+<p>介绍项目</p>
+<h2 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h2><p>对Flask的理解</p>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>平时怎么使用redis<br>redis常用的数据结构<br>zset<br>Redis遇到无法写入的情况<br>持久化策略</p>
+<h2 id="RMQ："><a href="#RMQ：" class="headerlink" title="RMQ："></a>RMQ：</h2><p>为什么会丢消息<br>什么情况下会用消息队列<br>底层队列怎么链接到Exchange</p>
+<h2 id="网络-1"><a href="#网络-1" class="headerlink" title="网络:"></a>网络:</h2><p>三次模式，四次挥手<br>http和https<br>ssl<br>对称和非对称密钥<br>TIME_WAIT存在的意义<br>http如何实现长连接，长连接的优点<br>http表头，组成部分<br>ping实现的过程</p>
+<h2 id="数据库："><a href="#数据库：" class="headerlink" title="数据库："></a>数据库：</h2><p>提高数据库查询的效率<br>不同引擎之间的区别<br>数据库隔离级别<br>序列化的底层实现<br>索引的数据结构，相比于二叉树的优点<br>join语句</p>
+<h2 id="Linux指令："><a href="#Linux指令：" class="headerlink" title="Linux指令："></a>Linux指令：</h2><p>如何查看进程<br>top指令<br>awk</p>
+<h2 id="进程和线程："><a href="#进程和线程：" class="headerlink" title="进程和线程："></a>进程和线程：</h2><p>进程和线程的理解<br>多进程单线程和单进程多线程<br>高并发模型<br>如何设计线程池（详细）</p>
+<p>Map的底层实现</p>
+<p>二进制协议</p>
+<h2 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h2><p>select, epoll<br>epoll的两种模式</p>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx:"></a>Nginx:</h2><p>Nginx如何做负载均衡<br>常用算法</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>红黑树，如何实现增删改查</p>
+<h2 id="算法："><a href="#算法：" class="headerlink" title="算法："></a>算法：</h2><p>String – Integer<br>二分法：left + [(right - end) / 2] 防止越界<br>快速排序<br>堆排序<br>扫描线算法</p>
+<p>前后端连接的方式</p>
+<h2 id="Java-1"><a href="#Java-1" class="headerlink" title="Java"></a>Java</h2><p>JVM的功能<br>垃圾回收机制<br>类的加载过程，类信息的存储</p>
+<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>服务注册中心的底层实现<br>单体转微服务会遇到的问题<br>什么情况下需要拆分微服务，以及为什么不会继续拆下去</p>
+<p>HTTP权威指南</p>
+<h2 id="Java网络开发"><a href="#Java网络开发" class="headerlink" title="Java网络开发"></a>Java网络开发</h2><p>AIO, BIO</p>
+<p>word search</p>
+<p>BFS 2</p>
+<p>divide conquer</p>
+<p>DP</p>
+<h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><ul>
+<li>项目中某个比较重要的点是如何实现的（需要深入技术的原理）</li>
+<li>遇到的最大困难是什么（有哪些），你怎么解决的？</li>
+<li>如果需要扩展某个功能，如何降低系统的耦合度</li>
+<li>如果针对某个功能进行优化，你会怎么设计和优化</li>
+</ul>
+<p>1.mysql你都了解哪方面？</p>
+<p>2.你做项目时，数据库的查询怎么优化的？</p>
+<p>3.有一张表，一天的数据量就达到了几千万，你怎么处理？</p>
+<p>4.mysql索引你还能想到怎么优化？</p>
+<p>5.mysql索引的最左前缀的底层原理？</p>
+<p>6.mysql索引你在使用时还遇过什么问题？</p>
+<p>7.mysql使用时不止建一个索引，不用主索引时还会出现你说的问题吗（之前我答的innodb引擎不使用自增字段作为主键对于索引性能的影响）？</p>
+<p>8.spring的bean的加载过程，源码看过吗？</p>
+<p>9.spring中你知道的用到的设计模式以及用在什么地方？</p>
+<p>10.除了刚刚讲的设计模式，你还知道什么设计模式，画出uml图。</p>
+<p>11.jdk动态代理讲讲。</p>
+<p>12.讲讲java的锁，java的并发控制，比如synchronized底层原理。</p>
+<p>13.java并发包中，你都知道什么，讲讲底层实现，实际开发用过吗？</p>
+<p>14.你用过什么java中间件吗？</p>
+<p>15.讲讲你在做项目时，能体现你技术方面的点。</p>
+<p>16.做项目，使用json字符串踩过坑吗？</p>
+<p>17.你想问我什么不知道还能不能给二面了？</p>
+<p>未解决：</p>
+<p>epoll共享内存<br>poll链表存储<br>ICMP协议详解</p>
+<p>数据库隔离级别</p>
+<p>ping的过程</p>
+<p>堆排序</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/15/设计模式/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/15/高性能Mysql/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ukyo Chen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java"><span class="nav-number">1.</span> <span class="nav-text">Java</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hashmap"><span class="nav-number">1.1.</span> <span class="nav-text">Hashmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StringBuilder-amp-amp-StringBuffer"><span class="nav-number">1.2.</span> <span class="nav-text">StringBuilder &amp;&amp; StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希算法"><span class="nav-number">1.3.</span> <span class="nav-text">哈希算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程-进程"><span class="nav-number">2.</span> <span class="nav-text">线程/进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程和进程区别"><span class="nav-number">2.1.</span> <span class="nav-text">线程和进程区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-定义"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-关系"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-区别"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. 区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java进程间通信"><span class="nav-number">2.2.</span> <span class="nav-text">Java进程间通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-进程间通信目的及方式"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 进程间通信目的及方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-线程间通信"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 线程间通信</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现LRU"><span class="nav-number">2.3.</span> <span class="nav-text">如何实现LRU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乐观锁-悲观锁"><span class="nav-number">2.4.</span> <span class="nav-text">乐观锁 悲观锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#悲观锁"><span class="nav-number">2.4.1.</span> <span class="nav-text">悲观锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乐观锁"><span class="nav-number">2.4.2.</span> <span class="nav-text">乐观锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#乐观锁常见的两种实现方式"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">乐观锁常见的两种实现方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入url到返回页面的全过程"><span class="nav-number">2.5.</span> <span class="nav-text">输入url到返回页面的全过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">2.5.1.</span> <span class="nav-text">References:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">2.6.</span> <span class="nav-text">DNS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络"><span class="nav-number">3.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#长连接-短连接"><span class="nav-number">3.1.</span> <span class="nav-text">长连接 短连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-HTTP协议与TCP-IP协议的关系"><span class="nav-number">3.1.1.</span> <span class="nav-text">1. HTTP协议与TCP/IP协议的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何理解HTTP协议是无状态的"><span class="nav-number">3.1.2.</span> <span class="nav-text">2. 如何理解HTTP协议是无状态的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-什么是长连接、短连接？"><span class="nav-number">3.1.3.</span> <span class="nav-text">3. 什么是长连接、短连接？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个-TCP-连接上面能发多少个-HTTP-请求"><span class="nav-number">3.2.</span> <span class="nav-text">一个 TCP 连接上面能发多少个 HTTP 请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP-的三次握手和4次挥手过程"><span class="nav-number">3.3.</span> <span class="nav-text">TCP 的三次握手和4次挥手过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL-TLS协议运行机制的概述"><span class="nav-number">3.4.</span> <span class="nav-text">SSL/TLS协议运行机制的概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加密算法"><span class="nav-number">4.</span> <span class="nav-text">加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对称加密"><span class="nav-number">4.1.</span> <span class="nav-text">对称加密</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TPS-and-QPS"><span class="nav-number">5.</span> <span class="nav-text">TPS and QPS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面经"><span class="nav-number">6.</span> <span class="nav-text">面经</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flask"><span class="nav-number">6.1.</span> <span class="nav-text">Flask</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-number">6.2.</span> <span class="nav-text">Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RMQ："><span class="nav-number">6.3.</span> <span class="nav-text">RMQ：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络-1"><span class="nav-number">6.4.</span> <span class="nav-text">网络:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库："><span class="nav-number">6.5.</span> <span class="nav-text">数据库：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux指令："><span class="nav-number">6.6.</span> <span class="nav-text">Linux指令：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程和线程："><span class="nav-number">6.7.</span> <span class="nav-text">进程和线程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多路复用"><span class="nav-number">6.8.</span> <span class="nav-text">多路复用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">6.9.</span> <span class="nav-text">Nginx:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-number">6.10.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法："><span class="nav-number">6.11.</span> <span class="nav-text">算法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-1"><span class="nav-number">6.12.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微服务"><span class="nav-number">6.13.</span> <span class="nav-text">微服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java网络开发"><span class="nav-number">6.14.</span> <span class="nav-text">Java网络开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目"><span class="nav-number">6.15.</span> <span class="nav-text">项目</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ukyo Chen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -95,7 +95,7 @@
 <meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581065809587.png">
 <meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175026766.png">
 <meta property="og:image" content="c:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175045067.png">
-<meta property="og:updated_time" content="2020-02-08T15:18:54.581Z">
+<meta property="og:updated_time" content="2020-02-09T03:27:12.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RMQ">
 <meta name="twitter:description" content="1 主流消息中间件1.1 ActiveMQ1.1.1 综合评价老牌，性能一般 阻塞，消息堆积过多存储方式落后集群架构模式较好API很完善，适合中小型互联网公司 1.1.2 集群架构模式1.1.2.1 Master-Slave模式 Zookeeper协调，高可用切换主节点提供服务，从节点备份 1.1.2.2 Network模式 Network网关 1.1.3 MQ衡量指标服务性能，数据存储，集群架构">
@@ -371,7 +371,16 @@
 <h2 id="2-2-高性能的原因"><a href="#2-2-高性能的原因" class="headerlink" title="2.2 高性能的原因"></a>2.2 高性能的原因</h2><p>采用Erlang语言：<br>Erlang语言最初用于交换机领域的架构模式，这样使得RabbitMQ在Broker之间进行数据交互（交换、同步）的性能非常优秀<br>Erlang有着和原生Socket一样的延迟（关注点：延迟、吞吐量、性能）</p>
 <h2 id="2-3-AMQP高级消息队列协议"><a href="#2-3-AMQP高级消息队列协议" class="headerlink" title="2.3 AMQP高级消息队列协议"></a>2.3 AMQP高级消息队列协议</h2><p>AMQP协议模型<br><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581065809587.png" alt="1581065809587"></p>
 <p>Server: 节点<br>Publisher: 和server建立连接，指定virtual host，将消息发送到Exchange，接下来就不用再操作（RabbitMQ解耦）。</p>
-<p>Server: 又称Broker，接受客户端连接，实现AMQP实体业务。<br>Connection: 连接，应用程序与Broker的网络连接。<br>Channel: 网络信道，几乎所有的操作都在channel中进行，Channel是进行消息读写的通道。客户端可以建立多个Channel，每个Channel代表一个会话任务。<br>数据读写，删除队列，删除Exchange<br>类似于数据库中的session，RMQ需要创建一个Channel来进行操作<br>Message: 消息，服务器和应用程序之间传送的数据，由Properties和Body组成。Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性；Body则是消息体内容。<br>Virtual host: 虚拟地址，用于进行逻辑隔离，最上层的消息路由。一个Virtual Host里可以有多个Exchange和Queue，同一个Virtual Host里面不能有相同名称的Exchange和Queue<br>Exchange: 交换机，接收消息，根据路由键转发消息到绑定的队列。<br>Binding: Exchange和Queue之间的虚拟连接，binding中可以包含routing key。<br>Routing key: 一个路由规则，虚拟机可用它来确定如何路由一个特定消息。<br>Queue: 也称为Message Queue，保存消息并将消息转发给消费者。</p>
+<p>Server: 又称Broker，接受客户端连接，实现AMQP实体业务。</p>
+<p>Connection: 连接，应用程序与Broker的网络连接。</p>
+<p>Channel: 网络信道，几乎所有的操作都在channel中进行，Channel是进行消息读写的通道。客户端可以建立多个Channel，每个Channel代表一个会话任务。<br>数据读写，删除队列，删除Exchange<br>类似于数据库中的session，RMQ需要创建一个Channel来进行操作</p>
+<p>Message: 消息，服务器和应用程序之间传送的数据，由</p>
+<p>Properties和Body组成。Properties可以对消息进行修饰，比如消息的优先级、延迟等高级特性；Body则是消息体内容。</p>
+<p>Virtual host: 虚拟地址，用于进行逻辑隔离，最上层的消息路由。一个Virtual Host里可以有多个Exchange和Queue，同一个Virtual Host里面不能有相同名称的Exchange和Queue</p>
+<p>Exchange: 交换机，接收消息，根据路由键转发消息到绑定的队列。</p>
+<p>Binding: Exchange和Queue之间的虚拟连接，binding中可以包含routing key。</p>
+<p>Routing key: 一个路由规则，虚拟机可用它来确定如何路由一个特定消息。</p>
+<p>Queue: 也称为Message Queue，保存消息并将消息转发给消费者。</p>
 <h2 id="2-4-RabbitMQ的整体架构"><a href="#2-4-RabbitMQ的整体架构" class="headerlink" title="2.4 RabbitMQ的整体架构"></a>2.4 RabbitMQ的整体架构</h2><p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175026766.png" alt="1581175026766"></p>
 <p><img src="C:%5CUsers%5Ccheny%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1581175045067.png" alt="1581175045067"></p>
 
@@ -493,7 +502,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -515,7 +524,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
